@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Documentation
+title: qwe
 description: >
   Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 menu: true
-order: 5
+order: 1
 ---
 
 Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
