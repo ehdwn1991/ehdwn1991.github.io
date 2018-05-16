@@ -245,7 +245,7 @@ A copy of the [MIT] license is provided as part of this distribution.
 [12]: http://keyamoon.com/
 [21]: https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg
 [31]: https://en.wikipedia.org/wiki/Benoit_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg
-[ph]: https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText
+[ph]: https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 [cg]: http://www.caleb-morris.com/
 
 [MIT]: licenses/MIT.md
