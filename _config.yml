@@ -3,11 +3,8 @@
 
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
-<<<<<<< HEAD
 # (unless you are using a custom domain).https://domain.tld
-=======
 # (unless you are using a custom domain).
->>>>>>> b1fe9e586165156e68040d7b0be2cc168cae71d9
 url:                   https://ehdwn1991.github.io/
 
 # IMPORTANT: Set The "base URL" of your site.
@@ -26,22 +23,13 @@ baseurl:               ''
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-<<<<<<< HEAD
 title:                 Codex Lab
-=======
 title:                 Hydejack
->>>>>>> b1fe9e586165156e68040d7b0be2cc168cae71d9
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-<<<<<<< HEAD
   Codex Lab is personal project of program.
-=======
-  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
-  Combines the best of static sites and modern web apps.
-  Open `_config.yml` to edit this text.
->>>>>>> b1fe9e586165156e68040d7b0be2cc168cae71d9
 
 # A shorter description for the sidebar.
 tagline:               >
@@ -55,13 +43,10 @@ logo:                  /assets/icons/icon.png
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
-<<<<<<< HEAD
   name:                Dongju Son
   email:               ehdwn1991@gamil.com
-=======
   name:                <firstname> <lastname>
   email:               <mail@domain.tld>
->>>>>>> b1fe9e586165156e68040d7b0be2cc168cae71d9
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
