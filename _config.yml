@@ -3,8 +3,8 @@
 
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
-# (unless you are using a custom domain).
-url:                  https://ehdwn1991.github.io
+# (unless you are using a custom domain).https://domain.tld
+url:                   https://ehdwn1991.github.io/
 
 # IMPORTANT: Set The "base URL" of your site.
 #
@@ -22,18 +22,16 @@ baseurl:               ''
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 codex
+title:                 Codex Lab
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
- qqqqqq
+  Codex Lab is personal project of program.
 
 # A shorter description for the sidebar.
 tagline:               >
-  A Jekyll theme with JavaScript powers.
-  Open `_config.yml` to edit this text.
-
+  description test
 # A list of keywords for your blog
 keywords:              []
 
@@ -43,8 +41,8 @@ logo:                  /assets/icons/icon.png
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
-  name:                son
-  email:               <mail@domain.tld>
+  name:                Dongju Son
+  email:               ehdwn1991@gamil.com
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
@@ -63,7 +61,7 @@ copyright:             © 2017. All rights reserved.
 permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
+paginate:              5
 paginate_path:         /page-:num/
 
 
@@ -161,7 +159,7 @@ collections:
     permalink:         /projects/:path/
     output:            true
 
-  
+
 # File inclusion/exclusion
 # ========================================================================================
 
@@ -267,29 +265,3 @@ sass:
 # so that the location of the feed XML stays the same.
 # feed:
 #   path:                atom.xml
-
-#sidebar
-defaults:
-- scope:
-path: blog.md
-values:
-menu: true
-order: 1
-- scope:
-path: projects.md
-values:
-menu: true
-order: 2
-- scope:
-path: resume.md
-values:
-menu: true
-order: 3
-- scope:
-path: about.md
-values:
-menu: true
-order: 4
-
-markdown: kramdown
-

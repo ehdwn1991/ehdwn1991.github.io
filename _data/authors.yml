@@ -2,8 +2,8 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              <firstname> <lastname>
-  email:             <mail@domain.tld>
+  name:              Dongju Son
+  email:             ehdwn1991@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -26,8 +26,8 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:         <username>
-    github:          <username>
+    #twitter:         <username>
+    github:          ehdwn1991
     # email:           mailto:<mail@domain.tld>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
@@ -67,17 +67,13 @@ author1:
 
 # Another author (optional)
 author2:
-  name:              <firtname> <lastname>
-  email:             <mail@domain.tld>
+  name:              Dongju Son
+  email:             ehdwn1991@gamil.com
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-    Open `_data/authors.yml` to edit this text.
+    취준생의 잔인한 프로그래밍.
   picture:           https://placehold.it/128x128
   twitter:           <username>
-  github:            <username>
+  github:            https://github.com/ehdwn1991/Codex
   accent_color:      '#268bd2'
   accent_image:
     background:      '#202020'
