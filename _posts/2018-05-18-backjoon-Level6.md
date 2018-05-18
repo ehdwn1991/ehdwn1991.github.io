@@ -8,6 +8,7 @@ author: author2
 ---
 
 ## [1152번[단어의 개수]](https://www.acmicpc.net/problem/2577)
+
 ```c
 #include <stdio.h>
 #include <string.h>
