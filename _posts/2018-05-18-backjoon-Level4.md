@@ -6,6 +6,7 @@ description: >
 tags: [backjoon]
 author: author2
 ---
+#Level4
 
 ## [10871번[X보다 작은수]](https://www.acmicpc.net/problem/10871)
 ```c

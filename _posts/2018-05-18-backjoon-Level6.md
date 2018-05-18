@@ -6,6 +6,7 @@ description: >
 tags: [backjoon]
 author: author2
 ---
+#Level6
 
 ## [1152번[단어의 개수]](https://www.acmicpc.net/problem/2577)
 

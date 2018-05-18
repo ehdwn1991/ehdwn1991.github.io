@@ -6,6 +6,7 @@ description: >
 tags: [backjoon]
 author: author2
 ---
+#Level5
 
 ##[4673번 문제[성공]](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/4673.c)
 셀프넘버
