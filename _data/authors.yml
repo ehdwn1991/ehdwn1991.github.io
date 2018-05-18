@@ -7,13 +7,9 @@ author1:
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  #사이드바 어바웃 부분에 들어가서 보여질 말부분
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-    Open `_data/authors.yml` to edit this text.
-
+    블로그 이전 중입니다.
   # This photo will be used in the about section
   picture:
     path:            https://placehold.it/128x128
@@ -28,7 +24,7 @@ author1:
   social:
     #twitter:         <username>
     github:          ehdwn1991
-    # email:           mailto:<mail@domain.tld>
+    email:           mailto:<ehdwn1991@gmail.com>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>

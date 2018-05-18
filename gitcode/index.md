@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Personal Code
+title: Programing
 description: >
   깃허브 코드 올라옴
 accent_color: '#268bd2'
@@ -11,10 +11,25 @@ menu: true
 order: 1
 ---
 
-[Codex code]{:.heading.flip-title}
+## C Programing
+
+{:.hr}
+
+* [Algospot Problem]{:.heading.flip-title} ---algo
+
+* [Backjoon Problem]{:.heading.flip-title}  ---back
+
+* [Personal Problem]{:.heading.flip-title}  ---personal
+
+  {:.related-posts.faded}
 
 
 
 
 
-[Codex code]: git_codex.md
+
+
+[C Programing]: git_codex.md
+[Algospot Problem]: algospot.md
+[Backjoon Problem]: backjoon.md
+[Personal Problem]: personal_prob.md
