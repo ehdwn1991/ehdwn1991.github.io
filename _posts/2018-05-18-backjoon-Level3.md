@@ -3,12 +3,20 @@ layout: post
 title: (Backjoon) 단계별 문제 풀이 Level 3
 description: >
   백준 단계별 문제집 레벨3
+  
+  [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_3)
 tags: [backjoon]
 author: author2
 ---
 
-##[2439번[별찍기2]](https://www.acmicpc.net/problem/2439)
->문제  : 다음과 같이 만들어지도록 출력
+## Level 3
+{:.no_toc}
+* 
+{:toc}
+
+
+## [2439번[별찍기2]](https://www.acmicpc.net/problem/2439)
+문제  : 다음과 같이 만들어지도록 출력
 
 ```c
 	*
@@ -39,12 +47,12 @@ int main(){
 }
 ```
 
-> 풀이 :  N줄 까지 우측 정렬로 출력 하는 문제.
+풀이 :  N줄 까지 우측 정렬로 출력 하는 문제.
 
 
 
 ## [2441번 [별찍기4]](https://www.acmicpc.net/problem/2441)
-> 문제  : 다음과 같이 만들어지도록 출력
+문제  : 다음과 같이 만들어지도록 출력
 
 ```c
 *****
@@ -78,11 +86,11 @@ int main(){
 }
 ```
 
-> 풀이 :  N줄 까지 역순 우측 정렬로 출력 하는 문제. 2439번에서 for문 순서만 바꿔주면 된다.
+풀이 :  N줄 까지 역순 우측 정렬로 출력 하는 문제. 2439번에서 for문 순서만 바꿔주면 된다.
 
 
 ## [1924번 [2007]](https://www.acmicpc.net/problem/1924)
-> 문제  : 오늘은 2007년 1월 1일 월요일이다. 그렇다면 2007년 x월 y일은 무슨 요일일까? 이를 알아내는 프로그램을 작성하시오.
+문제  : 오늘은 2007년 1월 1일 월요일이다. 그렇다면 2007년 x월 y일은 무슨 요일일까? 이를 알아내는 프로그램을 작성하시오.
 
 ```c
 #include <stdio.h>
@@ -104,10 +112,10 @@ int main(){
 }
 ```
 
-> 풀이 : 월 과 일이 입력으로 주어지고, 현재 1월1일부터 몇일이 지났는지 now_of_day에 저장 후 요일을 계산
+풀이 : 월 과 일이 입력으로 주어지고, 현재 1월1일부터 몇일이 지났는지 now_of_day에 저장 후 요일을 계산  
 
-##[8393번[합]](https://www.acmicpc.net/problem/1924)
-> 문제  : n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
+## [8393번[합]](https://www.acmicpc.net/problem/1924)
+문제  : n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
 ```c
 #include <stdio.h>
 
@@ -120,8 +128,10 @@ int main(){
     
 }
 ```
-##[11720번[숫자의 합]](https://www.acmicpc.net/problem/11720)
-> 문제 : N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.
+
+## [11720번[숫자의 합]](https://www.acmicpc.net/problem/11720)
+문제 : N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출력하는 프로그램을 작성하시오.  
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -136,19 +146,20 @@ int main(){
 		// result+=atoi(&input);
 			result+=(getc(stdin))-48;
 	}
-	//이렇게 해도 똑같은데 그럼 N을 쓸일이 없고 아무래도 atoi함수를 써서 틀린거 같음 노이해
+	//이렇게 해도 똑같은데 그럼 N을 쓸일이 없고 아무래도
+    //atoi함수를 써서 틀린거 같음 노이해
 	// while((input=getchar())!=10){
 	// 	result+=atoi(&input);
 	// }
 	printf("%d\n",result );
 }
 ```
->풀이 : 키보드로 부터 입력 받은 수(decimal)를 result에 계속 더함
+풀이 : 키보드로 부터 입력 받은 수(decimal)를 result에 계속 더함  
 
 
-##[11721번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/11720)
-> 문제 : 알파벳 소문자와 대문자로만 이루어진 길이가 N인 단어가 주어진다. 
-> 한 줄에 10글자씩 끊어서 출력하는 프로그램을 작성하시오.
+## [11721번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/11720)
+문제 : 알파벳 소문자와 대문자로만 이루어진 길이가 N인 단어가 주어진다.   
+한 줄에 10글자씩 끊어서 출력하는 프로그램을 작성하시오.  
 
 ```c
 #include <stdio.h>
@@ -166,10 +177,10 @@ int main(){
 	}
 }
 ```
->풀이 : fgets으로 한줄을 입력 받고 buf에서 10글자씩 출력 해준후 개행(\n).
+풀이 : fgets으로 한줄을 입력 받고 buf에서 10글자씩 출력 해준후 개행(\n).   
 
-##[15552번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/15552)
->문제 : 각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.(입력 A,B는 1000이하 케이스 T는 최대 1,000,000이다.)
+## [15552번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/15552)
+문제 : 각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.(입력 A,B는 1000이하 케이스 T는 최대 1,000,000이다.)  
 
 ```c
 #include <stdio.h>

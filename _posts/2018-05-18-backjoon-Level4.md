@@ -3,10 +3,15 @@ layout: post
 title: (Backjoon) 단계별 문제 풀이 Level 4
 description: >
   백준 단계별 문제집 레벨4
+  
+  [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_4)
 tags: [backjoon]
 author: author2
 ---
-#Level4
+## Level4
+{:.no_toc}
+* 
+{:toc}
 
 ## [10871번[X보다 작은수]](https://www.acmicpc.net/problem/10871)
 ```c
@@ -85,6 +90,7 @@ q
 >그리고 프로그램이 끝나기 전까지는 버퍼에 마지막 입력했던 문자가 들어있겠지요.
 [IBM Scanf 정의](https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rtref/scanf.htm)
 [여기 참고](http://electro-don.tistory.com/entry/scanf-n-%EA%B4%80%EB%A0%A8)
+
 ## [1546번[평균]](https://www.acmicpc.net/problem/1546)
 ```c
 #include <stdio.h>
