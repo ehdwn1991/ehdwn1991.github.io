@@ -34,11 +34,11 @@ order: 1
 
 [C Programing]: C_code.md
 
-[Algospot Problem]: /_featured_categories/algospot/algospot.md
+[Algospot Problem]: /category/algospot/
 
-[단계별 문제풀이]: /tag/backjoon/backjoon-level/
+[단계별 문제풀이]: /tag/backjoon-level/
 
-[알고리즘 분류별 문제풀이]: /tag/backjoon/backjoon-classification/
+[알고리즘 분류별 문제풀이]: /tag/backjoon-classification/
 
 [Personal Problem]: ../_featured_categories/personalcode/personalcode.md
 [Backjoon Problem]: /category/backjoon-category/
