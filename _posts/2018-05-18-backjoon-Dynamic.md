@@ -5,15 +5,15 @@ description: >
   알고리즘 분류 다이나믹 프로그래밍
   
   [모든 내용은 Git Hub에도있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Dynamic)
-tags: [backjoon]
+categories: [backjoon_category]
+tag: [c]
 author: author2
 ---
 ## Dynamic programing
 {:.no_toc}
 * 
 {:toc}
-
-## [9461번](https://www.acmicpc.net/problem/9461)
+## [9461](https://www.acmicpc.net/problem/9461)
 
 > 파도반 수열은 간단하다
 >

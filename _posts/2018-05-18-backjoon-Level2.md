@@ -5,7 +5,8 @@ description: >
   백준 단계별 문제집 레벨2
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_2)
-tags: [backjoon]
+categories: [backjoon_level]
+tag: [c]
 author: author2
 ---
 ## Level 2

@@ -5,7 +5,8 @@ description: >
   백준 수학 알고리즘
 
   [모든 내용은 Git Hub에도있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Math_prob)
-tags: [backjoon]
+categories: [backjoon_category]
+tag: [c]
 author: author2
 ---
 
@@ -101,7 +102,8 @@ int main(){
 }
 ```
 
-### 파스칼 삼각형
+### Pascal Triangle
+`파스칼 삼각형`
 ```c
 #include <stdio.h>
 #include <stdlib.h>

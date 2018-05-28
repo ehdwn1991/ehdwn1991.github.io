@@ -11,15 +11,18 @@ menu: true
 order: 1
 ---
 
-## C Programing
+## [C Programing]{:.heading.flip-title}
 
 {:.hr}
 
-* [Algospot Problem]{:.heading.flip-title} ---algo
+* [Algospot Problem]{:.heading.flip-title} ---algospot
 
-* [Backjoon Problem]{:.heading.flip-title}  ---back
+* [Backjoon Problem]
 
-* [Personal Problem]{:.heading.flip-title}  ---personal
+  * [단계별 문제풀이]{:.heading.flip-title}  ---Level
+  * [알고리즘 분류별 문제풀이]{:.heading.flip-title} --Algorithms Categories
+
+* [Personal Problem]{:.heading.flip-title}  ---personal code
 
   {:.related-posts.faded}
 
@@ -29,7 +32,9 @@ order: 1
 
 
 
-[C Programing]: git_codex.md
-[Algospot Problem]: algospot.md
-[Backjoon Problem]: backjoon.md
-[Personal Problem]: personal_prob.md
+[C Programing]: C_code.md
+[Algospot Problem]: /category/algospot
+[단계별 문제풀이]: /category/backjoon-level
+[알고리즘 분류별 문제풀이]: /category/backjoon-category
+[Personal Problem]: /category/personalcode
+

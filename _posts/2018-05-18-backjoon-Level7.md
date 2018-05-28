@@ -1,11 +1,12 @@
 ---
 layout: post
-title: (Backjoon) 단계별 문제 풀이 Level 7
+title: (Backjoon) 단계별 문제 풀이 Level7
 description: >
   백준 단계별 문제집 레벨7
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_7)
-tags: [backjoon]
+categories: [backjoon_level]
+tag: [c]
 author: author2
 ---
 ## Level7
