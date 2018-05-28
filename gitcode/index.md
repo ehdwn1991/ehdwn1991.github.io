@@ -36,8 +36,10 @@ order: 1
 
 [Algospot Problem]: /_featured_categories/algospot/algospot.md
 
-[단계별 문제풀이]: /backjoon/backjoon-level.md
-[알고리즘 분류별 문제풀이]: /backjoon/backjoon-classification.md
+[단계별 문제풀이]: /tag/backjoon/backjoon/backjoon-level/
+
+[알고리즘 분류별 문제풀이]: /tag/backjoon/backjoon/backjoon-classification/
+
 [Personal Problem]: ../_featured_categories/personalcode/personalcode.md
 [Backjoon Problem]: /category/backjoon-category
 
