@@ -1,7 +1,7 @@
 ---
 layout: list
-title: backjoon problem category
-slug: backjoon_category
+title: backjoon problem list
+slug: backjoon
 description: >
   List up backjoon prob category
 accent_color: '#268bd2'

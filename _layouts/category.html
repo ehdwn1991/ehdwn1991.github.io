@@ -21,22 +21,107 @@
 
 layout: base
 ---
-{% assign category = site.featured_categories | where: "slug", page.slug | last | sort : 'title' %}
+
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
-  {% assign posts = site.categories[page.slug]  %}
+  {% assign posts = site.categories[page.slug]  | sort: 'title','first' | reverse%}
 {% else %}
-  {% assign tag = site.featured_tags | where: "slug", page.slug | first | sort : 'title' | order:ascending %}
+  {% assign tag = site.featured_tags | where: "slug", page.slug | first %}
   {% if tag %}
-    {% assign posts = site.tags[page.slug] %}
+    {% assign posts = site.tags[page.slug]  | sort: 'title','first' | reverse%}
   {% else %}
-    {% assign posts = site.posts %}
+    {% assign posts = site.posts  | sort: 'title','first' | reverse%}
   {% endif %}
 {% endif %}
 
 
 {% for posts in posts%}
-<h2><a href="{{ posts.url}}">{{ posts.title }}</a></h2>
-<p>{{ posts.description }}</p>
+<h3><a href="{{ posts.url}}">{{ posts.title }}</a></h3>
+<!--<p>{{ posts.description }}</p>-->
  <!-- <p><a href="{{ posts.url}}">{{ posts.title }}</a></p>-->
 {% endfor %}
 
+<!--
+{% assign rawtags = "" %}
+
+{% for post in site.posts %}
+
+	{% assign ttags = post.tags | join:'|' | append:'|' %}
+
+	{% assign rawtags = rawtags | append:ttags %}
+
+{% endfor %}
+
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+
+
+{% assign tags = "" %}
+
+{% for tag in rawtags %}
+
+	{% if tag != "" %}
+
+		{% if tags == "" %}
+
+			{% assign tags = tag | split:'|' %}
+
+		{% endif %}
+
+		{% unless tags contains tag %}
+
+			{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+
+		{% endunless %}
+
+	{% endif %}
+
+{% endfor %}
+-->
+<!--
+{% for tag in tags %}
+
+	<h2 id="{{ tag | slugify }}">{{ tag }}</h2>
+
+	<ul>
+
+	 {% for post in site.posts %}
+
+		 {% if post.tags contains tag %}
+
+		 <li>
+
+		 <h3>
+
+		 <a href="{{ post.url }}">
+
+		 {{ post.title }}
+
+		 <small>{{ post.date | date_to_string }}</small>
+
+		 </a>
+
+		 {% for tag in post.tags %}
+
+			 {{ tag }}
+
+		 {% endfor %}
+
+		 </h3>
+
+		 </li>
+
+		 {% endif %}
+
+	 {% endfor %}
+
+	</ul>
+
+{% endfor %} 
+
+-->
+<!--
+{% for tag in tags %}
+	<a href="#{{ tag | slugify }}"> {{ tag }} </a>
+{% endfor %}
+-->

@@ -1,8 +1,9 @@
 ---
 layout: list
-title: backjoon problem Level
-slug: backjoon_level
+title: backjoon classification
+slug: backjoon_class
 description: >
   List up backjoon prob Level
 accent_color: '#268bd2'
 ---
+

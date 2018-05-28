@@ -1,12 +1,13 @@
 ---
 layout: post
 title: (Backjoon) 수학 알고리즘
+comments: true
 description: >
   백준 수학 알고리즘
 
   [모든 내용은 Git Hub에도있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Math_prob)
-categories: [backjoon_category]
-tag: [c]
+categories: [backjoon]
+tag: [c,backjoon_class]
 author: author2
 ---
 
