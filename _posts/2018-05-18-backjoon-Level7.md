@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Backjoon) 단계별 문제 풀이 Level 07
+title: Backjoon 단계별 문제 풀이 Level 07
 comments: true
 description: >
   백준 단계별 문제집 레벨7

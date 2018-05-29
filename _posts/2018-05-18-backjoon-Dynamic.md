@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Backjoon) 다이나믹 프로그래밍
+title: Backjoon 다이나믹 프로그래밍
 comments: true
 description: >
   알고리즘 분류 다이나믹 프로그래밍

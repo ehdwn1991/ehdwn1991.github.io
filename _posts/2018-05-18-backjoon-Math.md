@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Backjoon) 수학 알고리즘
+title: Backjoon 수학 알고리즘
 comments: true
 description: >
   백준 수학 알고리즘

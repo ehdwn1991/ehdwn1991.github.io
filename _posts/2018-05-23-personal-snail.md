@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (Personal)달팽이 배열1
+title: Personal-code 달팽이 배열1
 comments: true
 description: >
   C 도전프로그래밍3 - 도전2
