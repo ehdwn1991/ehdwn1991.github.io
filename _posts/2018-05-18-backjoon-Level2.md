@@ -10,8 +10,6 @@ categories: [backjoon]
 tag: [c,backjoon_level]
 author: author2
 ---
-## Level 2
-{:.no_toc}
 * 
 {:toc}
 
