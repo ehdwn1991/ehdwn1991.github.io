@@ -10,8 +10,6 @@ categories: [backjoon]
 tag: [c,backjoon_class]
 author: author2
 ---
-## Dynamic programing
-{:.no_toc}
 * 
 {:toc}
 ## [9461](https://www.acmicpc.net/problem/9461)
