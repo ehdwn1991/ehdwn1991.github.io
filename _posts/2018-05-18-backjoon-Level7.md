@@ -14,7 +14,6 @@ author: author2
 {:.no_toc}
 * 
 {:toc}
-
 ## [11654번[아스키 코드]](https://www.acmicpc.net/problem/11654)
 
 ```c

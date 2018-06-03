@@ -8,14 +8,15 @@ description: >
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_3)
 categories: [backjoon]
 tag: [c,backjoon_level]
+toc: true
 author: author2
 ---
-
+<!--
 ## Level 3
 {:.no_toc}
 * 
 {:toc}
-
+-->
 
 ## [2439번[별찍기2]](https://www.acmicpc.net/problem/2439)
 문제  : 다음과 같이 만들어지도록 출력
