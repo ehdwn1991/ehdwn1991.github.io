@@ -44,6 +44,8 @@ GEM
       jekyll (~> 3.3)
     jekyll-sitemap (1.2.0)
       jekyll (~> 3.3)
+    jekyll-titles-from-headings (0.5.1)
+      jekyll (~> 3.3)
     jekyll-toc (0.6.0)
       nokogiri (~> 1.7)
     jekyll-watch (2.0.0)
@@ -86,6 +88,7 @@ DEPENDENCIES
   jekyll-relative-links
   jekyll-seo-tag
   jekyll-sitemap
+  jekyll-titles-from-headings
   jekyll-toc
   tzinfo-data
 
