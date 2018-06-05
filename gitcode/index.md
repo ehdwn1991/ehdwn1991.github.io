@@ -27,8 +27,12 @@ order: 1
   {:.related-posts.faded}
 
 
+## [Linux]{:.heading.flip-title}
 
+{:.hr}
 
+* [etc]{:.heading.flip-title} ---etc...setiing and installation
+* [jekyll]{:.heading.flip-title} ---Jekyll for blog
 
 
 
@@ -42,4 +46,9 @@ order: 1
 
 [Personal Problem]: ../_featured_categories/personalcode/personalcode.md
 [Backjoon Problem]: /category/backjoon-category/
+
+[Linux]: /category/linux/
+[etc]: /tag/etc/
+[jekyll]: /tag/jekyll/
+
 

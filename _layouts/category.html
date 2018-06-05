@@ -21,6 +21,19 @@
 
 layout: base
 ---
+
+
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
+{% if category %}
+  {% assign posts = site.categories[page.slug]  | sort: 'title','first' | reverse%}
+ {% else %}
+  {% assign tag = site.featured_tags | where: "slug", page.slug | first%}
+  {% if tag %}
+    {% assign posts = site.tags[page.slug]  | sort: 'title','first' | reverse%}
+  {% else %}
+    {% assign posts = site.posts  | sort: 'title','first' | reverse%}
+  {% endif %} 
+{% endif %}
 {% if page.title.size > 0 %}
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
@@ -31,30 +44,16 @@ layout: base
 
 {{ content }}
 
-{% assign category = site.featured_categories | where: "slug", page.slug | first %}
-{% if category %}
-  {% assign posts = site.categories[page.slug]  | sort: 'title','first' | reverse%}
-{% else %}
-  {% assign tag = site.featured_tags | where: "slug", page.slug | first %}
-  {% if tag %}
-    {% assign posts = site.tags[page.slug]  | sort: 'title','first' | reverse%}
-  {% else %}
-    {% assign posts = site.posts  | sort: 'title','first' | reverse%}
-  {% endif %}
-{% endif %}
 
-{% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
+
 {% for post in posts%}
-
-<h4><li><a href="{{ post.url}}">
+<h3><li><a href="{{ post.url}}">
 <span>{{ post.title }}</span>
-
 </a>
 </li>
-</h4>
-{% include post-list-item.html post=post %}
-<!--<p>{{ posts.description }}</p>-->
- <!-- <p><a href="{{ posts.url}}">{{ posts.title }}</a></p>-->
+</h3>
+<!-- <p>{{ posts.description }}</p> -->
+ <!-- <p><a href="{{ posts.url}}">{{ posts.title }}</a></p> -->
 {% endfor %}
 
 <!--
@@ -136,6 +135,7 @@ layout: base
 {% endfor %} 
 
 -->
+
 <!--
 {% for tag in tags %}
 	<a href="#{{ tag | slugify }}"> {{ tag }} </a>

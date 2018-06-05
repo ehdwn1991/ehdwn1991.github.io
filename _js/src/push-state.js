@@ -118,15 +118,20 @@ const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 const { forEach } = Array.prototype;
 const assign = Object.assign.bind(Object);
 
+
+
+
 // ## Functions
 // Takes a heading and adds a "#" link for permalinks:
-function upgradeHeading(h) {
-  const template = document.getElementById('_permalink-template');
-  const df = document.importNode(template.content, true);
-  const a = df.querySelector('.permalink');
-  a.href = `#${h.id}`;
-  h.appendChild(df);
-}
+// function upgradeHeading(h) {
+//   const template = document.getElementById('_permalink-template');
+//   // const template = document.getElementById('_link');
+//   const df = document.importNode(template.content, true);
+//   const a = df.querySelector('.permalink');
+//   // const a = df.querySelector('.djlink');
+//   href = `#${h.id}`;
+//   h.appendChild(df);
+// }
 
 // Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
@@ -245,7 +250,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // Upgrade headlines to include headline-level `#` links.
   const initialMain = document.getElementById('_main');
-  forEach.call(initialMain.querySelectorAll(HEADING_SELECTOR), upgradeHeading);
+  // forEach.call(initialMain.querySelectorAll(HEADING_SELECTOR), upgradeHeading);
+  forEach.call(initialMain.querySelectorAll(HEADING_SELECTOR));
 
   // Remove the CSS fade-in class (to avoid playing it again)
   initialMain.classList.remove('fade-in');
@@ -328,10 +334,12 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // The `ready` event occurs when we've received the content from the server
   // and it is parsed as a document fragment, but before we add it to the DOM.
   // This is were we can make some changes to the content without triggering repaints.
+  
   ready$.subscribe(({ replaceEls: [main] }) => {
     loading.style.display = 'none';
     main.classList.remove('fade-in');
-    forEach.call(main.querySelectorAll(HEADING_SELECTOR), upgradeHeading);
+    // forEach.call(main.querySelectorAll(HEADING_SELECTOR), upgradeHeading);
+    forEach.call(main.querySelectorAll(HEADING_SELECTOR));
     main.style.pointerEvents = 'none';
   });
 
