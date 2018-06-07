@@ -34,7 +34,7 @@ order: 1
 * [etc]{:.heading.flip-title} ---etc...setiing and installation
 * [jekyll]{:.heading.flip-title} ---Jekyll for blog
 
-
+  {:.related-posts.faded}
 
 [C Programing]: C_code.md
 

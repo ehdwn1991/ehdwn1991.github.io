@@ -6,6 +6,8 @@ description: >
   백준 단계별 문제집 레벨7
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_7)
+
+toc: true
 categories: [backjoon]
 tag: [c,backjoon_level]
 author: author2
@@ -14,7 +16,7 @@ author: author2
 {:.no_toc}
 * 
 {:toc}
-## [11654번[아스키 코드]](https://www.acmicpc.net/problem/11654)
+## [a11654번[아스키 코드]](https://www.acmicpc.net/problem/11654)
 
 ```c
 #include <stdio.h>
@@ -29,8 +31,8 @@ int main(){
 
 
 
-## [10809번[알파벳 찾기]](https://www.acmicpc.net/problem/10809)
-
+## [problem.10809](https://www.acmicpc.net/problem/10809)
+`10809번알파벳 찾기`
 ```c
 #include <stdio.h>
 #include <stdlib.h>
