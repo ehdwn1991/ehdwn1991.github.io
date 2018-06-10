@@ -165,7 +165,8 @@ int main(){
 >등차 수열을 이루지 못하다면 Mix 인것이다.
 
 
-## [100039번[평균점수]](https://www.acmicpc.net/problem/100039)
+## [Problem.100039](https://www.acmicpc.net/problem/100039)
+`평균점수`
 ```c
 #include <stdio.h>
 int main(){

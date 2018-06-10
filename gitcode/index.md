@@ -3,10 +3,8 @@ layout: page
 title: Programing
 description: >
   깃허브 코드 올라옴
-accent_color: '#268bd2'
 accent_image:
-  background: '#202020'
-  overlay:    false
+  overlay:    true
 menu: true
 order: 1
 ---

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: study_post
 title: Embeded Programer
 slug: study_embeded
 description: >

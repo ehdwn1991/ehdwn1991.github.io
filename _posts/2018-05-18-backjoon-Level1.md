@@ -15,8 +15,8 @@ author: author2
 
 
 
-## [11178번[그대로 출력하기]](https://www.acmicpc.net/problem/11718)
-
+## [Problem.11178](https://www.acmicpc.net/problem/11718)
+`그대로 출력하기1`
 문제 : 입력 받은 대로 출력하는 프로그램을 작성하시오.  
 
 ```c
@@ -36,8 +36,8 @@ int main(int argc,char **argv){
 
 
 
-## [11719번[그대로 출력하기2]](https://www.acmicpc.net/problem/11719)
-
+## [Problem.11719번](https://www.acmicpc.net/problem/11719)
+`그대로 출력하기2`
 
 문제 : 입력 받은 대로 출력하는 프로그램을 작성하시오  
 단,알파벳 소문자, 대문자, 공백, 숫자로만 이루어져 있다. 각 줄은 100글자를 넘지 않으며,  

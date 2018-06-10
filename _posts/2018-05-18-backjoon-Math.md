@@ -17,9 +17,10 @@ author: author2
 {:toc}
 
 ## [알고리즘 분류[수학]](https://www.acmicpc.net/problem/tag/%EC%88%98%ED%95%99)
+{:.no_toc}
 
-
-### [1978번 문제](https://www.acmicpc.net/problem/1978)
+### [Problem.1978](https://www.acmicpc.net/problem/1978)
+`소수찾기`
 ```shell
 소수찾기
 소수는 sqrt(N)까지만 검색하면 된다. 2~sqrt(N)까지 나누어 떨어지는 수가 없다면 소수가 보장되기 때문임.

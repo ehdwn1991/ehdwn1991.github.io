@@ -14,8 +14,8 @@ author: author2
 {:.no_toc}
 * 
 {:toc}
-## [a11654번[아스키 코드]](https://www.acmicpc.net/problem/11654)
-
+## [Problem.11654](https://www.acmicpc.net/problem/11654)
+`아스키 코드`
 ```c
 #include <stdio.h>
 int main(){
@@ -29,7 +29,7 @@ int main(){
 
 
 
-## [problem.10809](https://www.acmicpc.net/problem/10809)
+## [Problem.10809](https://www.acmicpc.net/problem/10809)
 `10809번알파벳 찾기`
 ```c
 #include <stdio.h>
@@ -68,8 +68,8 @@ puts("");
 
 
 
-##[2675번[문자열 반복]](https://www.acmicpc.net/problem/2675)
-
+##[Problem.2675](https://www.acmicpc.net/problem/2675)
+`문자열 반복`
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -98,7 +98,8 @@ void QR_code(char *q){
 
 ```
 
-##[1157번[단어 공부]](https://www.acmicpc.net/problem/1157)
+##[Problem.1157](https://www.acmicpc.net/problem/1157)
+`단어 공부`
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -149,7 +150,8 @@ int main(){
 >비교 하는 과정에서 가장큰 문자는 1번만 나와야하고 2번 이상 나온다면 "?"를 출력해주어야 한다.
 
 
-##[1316번[그룹 단어 체커]](https://www.acmicpc.net/problem/1316)
+##[Problem.1316](https://www.acmicpc.net/problem/1316)
+`그룹 단어 체커`
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -196,7 +198,8 @@ return 1;
 >이후 N번째의 문자가 N+1번째부터 끝까지
 >한번이라도 나온다면 연속문자가 아님.
 
-##[2908번[상수]](https://www.acmicpc.net/problem/2908)
+##[Problem.2908](https://www.acmicpc.net/problem/2908)
+`상수`
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -229,7 +232,8 @@ int main(){
 }
 ```
 
-##[5622번[다이얼]](https://www.acmicpc.net/problem/5622)
+##[Problem.5622](https://www.acmicpc.net/problem/5622)
+`다이얼`
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -261,7 +265,8 @@ int main(){
 >그냥 조건에 맞춘 노가다 인듯 싶다...중요한건 다이얼에서 1과 0은 입력이 없다고 보면 된다.
 >2~9까지의 수만 쓰인다 생각하고 풀면됨
 
-##[2941번[크로아티아 알파벳]](https://www.acmicpc.net/problem/5622)
+##[Problem.2941](https://www.acmicpc.net/problem/5622)
+`크로아티아 알파벳`
 ```c
 #include <stdio.h>
 #include <string.h>
