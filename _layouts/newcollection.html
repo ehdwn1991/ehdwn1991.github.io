@@ -1,0 +1,24 @@
+---
+layout: base
+---
+
+{% if page.title.size > 0 %}
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include message.html text=page.description hide=page.hide_description %}
+  </header>
+  <hr class="sr-only"/>
+{% endif %}
+
+{{ content }}
+
+{% for test in site.study %}
+{% if test.title != page.title %}
+    {% if test.layout == "page" %}
+    {% assign studycoll = test.title | join:'|' | append:'|' %}
+    {% assign scoll = scoll | append:studycoll %}
+<h2><li><a href="{{ test.url | prepend: site.baseurl }}">
+       {{ test.title }} </a></li></h2>
+    {% endif %}
+{% endif%}
+{% endfor %}  
