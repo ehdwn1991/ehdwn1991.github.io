@@ -32,12 +32,12 @@ order: 2
 {% endfor%}
 ## aaaa -->
 
-{% assign posts = site.study | where:'tags',"c" %}
+<!-- {% assign posts = site.study | where:'tags',"c" %}
 {% assign tt = site.tags["c"] | sort: 'title','first' | reverse%}
 {% assign posts = posts | concat: tt%}
 {% for post in posts%}
 {{post.title}}
-{% endfor%}
+{% endfor%} -->
 
 <!-- study콜렉션에 있는 layout이 page인 문서들을 보여줌-->
 {% for test in site.study %}
