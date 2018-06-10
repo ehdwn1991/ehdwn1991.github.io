@@ -1,5 +1,5 @@
 # Config
-# ========================================================================================
+# ==============================콜=========================================================
 
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
@@ -45,11 +45,12 @@ logo:                  /assets/img/logo.jpg
 author:
   name:                Dongju Son
   email:               ehdwn1991@gamil.com
+  picture:           /assets/img/logo.jpg
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2017. All rights reserved.
+copyright:             © 2018 Copyright CodexLab. All rights reserved.
 
 # Add links to the footer.
 # Typically you'll want to link to your impress, cookies or privacy policy, etc.
@@ -60,8 +61,8 @@ copyright:             © 2017. All rights reserved.
 #     href:              /cookies-policy/
 
 # Format of the permalinks
-# permalink:             pretty
-permalink: /:categories/:title/
+permalink:             pretty
+# permalink: /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
@@ -165,7 +166,10 @@ collections:
   projects:
     permalink:         /projects/:path/
     output:            true
-
+  
+  study:
+    permalink:         /study/:name/
+    output: true
 
 # File inclusion/exclusion
 # ========================================================================================
@@ -185,7 +189,7 @@ include:
 # ========================================================================================
 
 plugins:
-  # - jekyll-avatar
+  - jekyll-avatar
   - jekyll-default-layout
   - jekyll-feed
   # - jekyll-gist

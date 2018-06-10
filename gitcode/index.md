@@ -36,7 +36,24 @@ order: 1
 
   {:.related-posts.faded}
 
-[C Programing]: C_code.md
+
+[qweqweqweqe]{:.heading.flip-title}
+
+[qweqweqweqe]: testcollpage.md
+
+
+[태그테스트리스트]{:.heading.flip-title}
+[태그테스트카테고리]{:.heading.flip-title}
+[카테고리테스트리스트]{:.heading.flip-title}
+[카테고리테스트카테고리]{:.heading.flip-title}
+
+[태그테스트리스트]: /tag/testl/
+[태그테스트카테고리]: /tag/testc/
+[카테고리테스트리스트]: /categoty/testl/
+[카테고리테스트카테고리]: /categoty/testc/
+
+
+[C Programing]: /tag/c-code/
 
 [Algospot Problem]: /category/algospot/
 

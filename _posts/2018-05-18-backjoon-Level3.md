@@ -7,7 +7,7 @@ description: >
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_3)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 toc: true
 author: author2
 ---
@@ -18,7 +18,8 @@ author: author2
 {:toc}
 -->
 
-## [2439번[별찍기2]](https://www.acmicpc.net/problem/2439)
+## [Problem.2439](https://www.acmicpc.net/problem/2439)
+`2439번[별찍기2]`
 문제  : 다음과 같이 만들어지도록 출력
 
 ```c
@@ -54,7 +55,8 @@ int main(){
 
 
 
-## [2441번 [별찍기4]](https://www.acmicpc.net/problem/2441)
+## [Problem.2441](https://www.acmicpc.net/problem/2441)
+`2441번 [별찍기4]`
 문제  : 다음과 같이 만들어지도록 출력
 
 ```c
@@ -92,7 +94,8 @@ int main(){
 풀이 :  N줄 까지 역순 우측 정렬로 출력 하는 문제. 2439번에서 for문 순서만 바꿔주면 된다.
 
 
-## [1924번 [2007]](https://www.acmicpc.net/problem/1924)
+## [Problem.1924](https://www.acmicpc.net/problem/1924)
+`1924번 [2007]`
 문제  : 오늘은 2007년 1월 1일 월요일이다. 그렇다면 2007년 x월 y일은 무슨 요일일까? 이를 알아내는 프로그램을 작성하시오.
 
 ```c
@@ -117,7 +120,8 @@ int main(){
 
 풀이 : 월 과 일이 입력으로 주어지고, 현재 1월1일부터 몇일이 지났는지 now_of_day에 저장 후 요일을 계산  
 
-## [8393번[합]](https://www.acmicpc.net/problem/1924)
+## [Problem.8393](https://www.acmicpc.net/problem/1924)
+`8393번[합]`
 문제  : n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
 ```c
 #include <stdio.h>
@@ -160,7 +164,8 @@ int main(){
 풀이 : 키보드로 부터 입력 받은 수(decimal)를 result에 계속 더함  
 
 
-## [11721번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/11720)
+## [Problem.11721](https://www.acmicpc.net/problem/11720)
+`11721번[열개씩 끊어서 출력하기]`
 문제 : 알파벳 소문자와 대문자로만 이루어진 길이가 N인 단어가 주어진다.   
 한 줄에 10글자씩 끊어서 출력하는 프로그램을 작성하시오.  
 
@@ -182,7 +187,8 @@ int main(){
 ```
 풀이 : fgets으로 한줄을 입력 받고 buf에서 10글자씩 출력 해준후 개행(\n).   
 
-## [15552번[열개씩 끊어서 출력하기]](https://www.acmicpc.net/problem/15552)
+## [Problem.15552](https://www.acmicpc.net/problem/15552)
+`15552번[열개씩 끊어서 출력하기]`
 문제 : 각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.(입력 A,B는 1000이하 케이스 T는 최대 1,000,000이다.)  
 
 ```c

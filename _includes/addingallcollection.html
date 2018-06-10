@@ -1,0 +1,20 @@
+<!-- adding post in study collection -->
+{% assign date_formats  = site.data.strings.date_formats               %}
+{% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
+{% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
+
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
+{% if category %}
+	{% for addcoll in site.study %}
+		{% if addcoll.categories contains page.slug %}
+		{% include post-list-item.html post=addcoll format=list_entry %}
+		{% endif %}
+	{% endfor %}
+{% else %}
+	{% for addcoll in site.study %}
+		{% if addcoll.tags contains page.slug %}
+		{% include post-list-item.html post=addcoll format=list_entry %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+

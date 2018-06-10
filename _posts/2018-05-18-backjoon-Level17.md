@@ -7,12 +7,13 @@ description: >
   
   [모든 내용은 Git Hub에도있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_17)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 author: author2
 ---
 * . 
 {:toc}
-## [10871번[윷놀이]](https://www.acmicpc.net/problem/2490)
+## [Problem.10871](https://www.acmicpc.net/problem/2490)
+`10871번[윷놀이]`
 자세한 설명 [여기](2018-05-18-backjoon-Level4.md) 참고
 ```c
 #include <stdio.h>
@@ -37,7 +38,8 @@ int main(){
 }
 ```
 
-## [2490번[윷놀이]](https://www.acmicpc.net/problem/2490)
+## [Problem.2490](https://www.acmicpc.net/problem/2490)
+`2490번[윷놀이]`
 ```c
 #include <stdio.h>
 #include <stdlib.h>

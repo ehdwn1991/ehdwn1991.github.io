@@ -7,7 +7,7 @@ description: >
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_5)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 author: author2
 ---
 ## Level5
@@ -15,15 +15,15 @@ author: author2
 * 
 {:toc}
 
-## [4673번 문제(성공)](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/4673.c)
-
+## [Problem.4673](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/4673.c)
+`4673번 문제(성공)`
 >셀프넘버  
 >[Wiki 참고](https://en.wikipedia.org/wiki/Self_number)
 
 
 
-## [1065번 문제(성공)](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/1065.c)
-`한수`
+## [Problem.1065](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/1065.c)
+`1065번 문제(성공)-한수`
 각 자리수가 등차 수열을 이루면 한수로 취급한다.
 예를 들어 보자 99는 한수 인가? 9와 9는 공차 0으로 한수이다.
 그렇다면 100은 어떤가? 한수 일리가 없다. 즉 99이하는 전부 한수가 된다.
@@ -32,8 +32,8 @@ author: author2
 
 
 
-## [2448번 문제(성공)](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/2448.c)
-`파스칼 삼각형 별찍기`
+## [Problem.2448](https://github.com/ehdwn1991/Codex/blob/master/backjoon/Level_5/2448.c)
+`2448번 문제(성공)-파스칼 삼각형 별찍기`
 입력 N줄이 주어지고(N은 3*2^K의 수로 보장됨), 최대 열의 갯수는2N-1개가 됨.  
 N줄의 최대 값은 3072이고, 열의 최대 값은 60143개임  
 처음에 별이 고정됨. 즉, 이 3줄이  한 셋트임.  

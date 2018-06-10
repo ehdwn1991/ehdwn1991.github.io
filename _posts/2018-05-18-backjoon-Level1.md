@@ -7,7 +7,7 @@ description: >
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_1)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 author: author2
 ---
 * 

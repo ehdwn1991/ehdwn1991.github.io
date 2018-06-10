@@ -7,7 +7,7 @@ description: >
 
   [모든 내용은 Git Hub에도있습니다.](https://github.com/ehdwn1991/Codex/tree/master/Anything/snail)
 categories: [personal_prob]
-tag: [c,array]
+tags: [c,array]
 author: author2
 ---
 

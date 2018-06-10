@@ -17,8 +17,17 @@
       {% assign tag_start          = site.data.strings.tag_start          | default:"on " %}
       {% assign category_separator = site.data.strings.category_separator | default:" / " %}
       {% assign tag_separator      = site.data.strings.tag_separator      | default:", "  %}
+     
+      {% assign test_start     = site.data.strings.test_start     | default:"at " %}
+      {% assign test_separator      = site.data.strings.test_separator      | default:", "  %}
+
+
+
       {% include tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
       {% include tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
+
+      {% include tag-list.html tags=post.study meta=site.study start_with=test_start separator=test_separator %}
+
     </p>
 
     {% include message.html text=post.description hide=page.hide_description %}

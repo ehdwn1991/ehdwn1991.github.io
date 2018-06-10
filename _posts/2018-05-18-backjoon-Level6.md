@@ -7,7 +7,7 @@ description: >
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_6)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 author: author2
 ---
 ## Level6
@@ -15,8 +15,8 @@ author: author2
 * 
 {:toc}
 
-## [1152번[단어의 개수]](https://www.acmicpc.net/problem/2577)
-
+## [Problem.1152](https://www.acmicpc.net/problem/2577)
+`1152번[단어의 개수]`
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -60,7 +60,8 @@ int main(){
 >		마지막 문자가 Newline이고 is_word가 1이라면 이전에 글자가 있었던것
 
 
-## [2257번[숫자의 개수]](https://www.acmicpc.net/problem/2577)
+## [Problem.2257](https://www.acmicpc.net/problem/2577)
+`2257번[숫자의 개수]`
 ```c
 #include <stdio.h>
 int main(){
@@ -82,7 +83,8 @@ int main(){
 ```
 
 
-## [8958번[OX퀴즈]](https://www.acmicpc.net/problem/8958)
+## [Problem.8958](https://www.acmicpc.net/problem/8958)
+`8958번[OX퀴즈]`
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -124,7 +126,8 @@ int main(){
 >scanf로 입력 받고 버퍼를 비워줘야함.
 
 
-## [2920번[음계]](https://www.acmicpc.net/problem/2920)
+## [Problem.2920](https://www.acmicpc.net/problem/2920)
+`2920번[음계]`
 ```c
 #include <stdio.h>
 int main(){

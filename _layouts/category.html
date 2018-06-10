@@ -22,18 +22,31 @@
 layout: base
 ---
 
-
+<!-- Not order by Y M D -->
 {% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
-  {% assign posts = site.categories[page.slug]  | sort: 'title','first' | reverse%}
+  {% assign posts = site.categories[page.slug] %}
+  {% assign s_category = site.study | where:"categories", page.slug%}
+  {% assign posts = posts | concat: s_category %}
  {% else %}
   {% assign tag = site.featured_tags | where: "slug", page.slug | first%}
   {% if tag %}
-    {% assign posts = site.tags[page.slug]  | sort: 'title','first' | reverse%}
+    {% assign posts = site.tags[page.slug] %}
+    {% assign s_tag = site.study | where:"tags", page.slug%}
+    {% assign posts = posts | concat: s_tag %}
   {% else %}
     {% assign posts = site.posts  | sort: 'title','first' | reverse%}
   {% endif %} 
 {% endif %}
+
+<!-- add dj -->
+{% if posts%}
+	{% assign posts = posts | sort: 'title','first' | reverse %}
+{% endif%}
+
+
+
+
 {% if page.title.size > 0 %}
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
@@ -44,19 +57,20 @@ layout: base
 
 {{ content }}
 
+{% assign date_formats  = site.data.strings.date_formats               %}
+{% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
+{% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
 
-
+<ul class="related-posts">
 {% for post in posts%}
-<h3><li><a href="{{ post.url}}">
-<span>{{ post.title }}</span>
-</a>
-</li>
-</h3>
-<!-- <p>{{ posts.description }}</p> -->
- <!-- <p><a href="{{ posts.url}}">{{ posts.title }}</a></p> -->
-{% endfor %}
 
-<!--
+{% include post-list-item.html post=post format=list_entry %}
+
+{% endfor %}
+{% include addingallcollection.html %}
+</ul>
+
+<!-- 
 {% assign rawtags = "" %}
 
 {% for post in site.posts %}
@@ -66,6 +80,7 @@ layout: base
 	{% assign rawtags = rawtags | append:ttags %}
 
 {% endfor %}
+
 
 {% assign rawtags = rawtags | split:'|' | sort %}
 
@@ -92,8 +107,8 @@ layout: base
 	{% endif %}
 
 {% endfor %}
--->
-<!--
+
+
 {% for tag in tags %}
 
 	<h2 id="{{ tag | slugify }}">{{ tag }}</h2>
@@ -133,11 +148,11 @@ layout: base
 	</ul>
 
 {% endfor %} 
+ -->
 
--->
 
-<!--
-{% for tag in tags %}
+<!-- this is all tag show -->
+<!-- {% for tag in tags %}
 	<a href="#{{ tag | slugify }}"> {{ tag }} </a>
 {% endfor %}
--->
+ -->

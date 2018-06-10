@@ -7,7 +7,7 @@ description: >
   
   [모든 내용은 Git Hub에도 있습니다.](https://github.com/ehdwn1991/Codex/tree/master/backjoon/Level_4)
 categories: [backjoon]
-tag: [c,backjoon_level]
+tags: [c,backjoon_level]
 author: author2
 ---
 ## Level4
@@ -15,7 +15,8 @@ author: author2
 * 
 {:toc}
 
-## [10871번[X보다 작은수]](https://www.acmicpc.net/problem/10871)
+## [Problem.10871](https://www.acmicpc.net/problem/10871)
+`10871번[X보다 작은수]`
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -93,7 +94,8 @@ q
 [IBM Scanf 정의](https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rtref/scanf.htm)
 [여기 참고](http://electro-don.tistory.com/entry/scanf-n-%EA%B4%80%EB%A0%A8)
 
-## [1546번[평균]](https://www.acmicpc.net/problem/1546)
+## [Problem.1546](https://www.acmicpc.net/problem/1546)
+`1546번[평균]`
 ```c
 #include <stdio.h>
 #include <string.h>
