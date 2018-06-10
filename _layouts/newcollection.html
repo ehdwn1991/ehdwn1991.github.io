@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 ---
 <article class="page" role="article">
   <header>
@@ -12,7 +12,7 @@ layout: page
 
 {% for test in site.study %}
 {% if test.title != page.title %}
-    {% if test.layout == "page" %}
+    {% if test.layout == "study_post" %}
     {% assign studycoll = test.title | join:'|' | append:'|' %}
     {% assign scoll = scoll | append:studycoll %}
 <h2><li><a href="{{ test.url | prepend: site.baseurl }}">
