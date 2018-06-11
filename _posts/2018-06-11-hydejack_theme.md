@@ -327,7 +327,7 @@ $ tree -L 2
 
 그럼 이제 밑의 사진 처럼 구성이 되어 있을것입니다.
 
-![fol](assets/fol.png)
+![fol](https://github.com/ehdwn1991/Ubuntu/tree/master/assets/fol.png)
 
 이제 각 폴더와 파일들을 상세하게 살펴보면 될것같습니다.
 
@@ -468,9 +468,7 @@ my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
 
 ```html
 # _layout/mycategory.html
----
-layout: base
----
+
 ...
 <!--
 {% for test in site.my_collection %}
@@ -509,25 +507,9 @@ order: 2
 새로 분류된 class에서 _my_collection 안에서 작성된 포스트들을 보여줘야한다.  
 
 레이 아웃에 mylist.html 을 만들어서 해당 기능 넣고 해결.
-
-```markdown
+~~~html
 # _layout/mylist.html
----
-layout: base
----
-<!--
-{% if page.title.size > 0 %}
-  <header>
-    <h1 class="page-title">{{ page.title }}</h1>
-    {% include message.html text=page.description hide=page.hide_description %}
-  </header>
-  <hr class="sr-only"/>
-{% endif %}
-{{content}}
-{% assign date_formats  = site.data.strings.date_formats               %}
-{% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
-{% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
-<ul class="related-posts">
+
 {% for post in site.my_collection %}
 {% if post.my_collection contains page.slug%}
    <li>
@@ -538,9 +520,7 @@ layout: base
 </li>
 {% endif%}
 {% endfor %}
-</ul>
--->
-```
+~~~
 
 ```markdown
 # _my_collection/index.md
