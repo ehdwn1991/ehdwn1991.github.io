@@ -1,6 +1,6 @@
 ---
 layout: post
-title: intro_coe sample
+title: Study C_program Collection Post Sample
 comments: true
 description: >
   

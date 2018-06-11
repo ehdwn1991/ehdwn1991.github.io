@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Study 임베디드 개론 Collection Post Sample
+title: Study Embeded lecture Collection Post Sample
 comments: true
 description: >
   
 
-study: [study_intro_coe]
+study: [study_embeded]
 categories: [personal_prob]
 tags: [c,backjoon_level]
 date: 2018-05-05
