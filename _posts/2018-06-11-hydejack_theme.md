@@ -467,17 +467,12 @@ _my_collection폴더 안에 index.md의 기능 추가하고,
 my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
 
 ```html
-<!-- ./_layout/mycategory.html-->
+# _layout/mycategory.html
 ---
 layout: base
 ---
 ...
-<article class="page" role="article">
-  <header>
-    <h1 class="page-title">{{ page.title }}</h1>
-    {% include message.html text=page.description hide=page.hide_description %}
-  </header>
-  {{ content }}
+<!--
 {% for test in site.my_collection %}
 {% if test.title != page.title %}
     {% if test.layout == "study_post" %}
@@ -488,7 +483,7 @@ layout: base
     {% endif %}
 {% endif%}
 {% endfor %}  
-</article>
+-->
 ...
 ```
 
@@ -520,6 +515,7 @@ order: 2
 ---
 layout: base
 ---
+<!--
 {% if page.title.size > 0 %}
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
@@ -543,6 +539,7 @@ layout: base
 {% endif%}
 {% endfor %}
 </ul>
+-->
 ```
 
 ```markdown
@@ -571,6 +568,7 @@ list layout에 my collection에 있는 tag와 category를 가진 포스트를 �
 
 ```markdown
 # _layout/list.html
+<!--
 ...
 {% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
@@ -593,6 +591,7 @@ list layout에 my collection에 있는 tag와 category를 가진 포스트를 �
   {% assign posts = posts | sort: 'date,title' | reverse %}
   {% endif%}
  ...
+ -->
 ```
 
  
