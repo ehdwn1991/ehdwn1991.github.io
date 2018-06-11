@@ -389,26 +389,9 @@ about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보�
 
   about 페이지를 만들때 쓰임.
 
-```html
-# ./_layout/about.html
-<!--
-{% assign plugins = site.plugins | default:site.gems %}
-<article class="page" role="article">
-  {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
-이부분이 _data안에 있는 authors.yml문서의 값을 불러옴
-  {% if author.picture %}
-    {% include srcset-img.html class="avatar" img=author.picture alt=author.name %}
-  {% elsif plugins contains 'jekyll-avatar' %}
-    {% assign avatar = author.social.github | default:author.github.username | default:author.github %}
-    {% include avatar-tag.html user=avatar %}
-  {% endif %}
-  <h1 class="page-title hr">{{ page.title }}</h1>
-  {{ author.about | markdownify }}
-  {% include message.html text=page.description hide=page.hide_description alt="" %}
-  {{ content }}
-</article>
-...
--->
+```markdown
+# _layout/about.html
+
 ```
 
 
@@ -484,7 +467,7 @@ _my_collection폴더 안에 index.md의 기능 추가하고,
 my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
 
 ```html
-# ./_layout/mycategory.html
+<!-- ./_layout/mycategory.html-->
 ---
 layout: base
 ---
@@ -510,7 +493,7 @@ layout: base
 ```
 
 ```markdown
-# ./_my_collection/index.md
+# _my_collection/index.md
 ---
 layout: mycategory
 title: Study
@@ -533,7 +516,7 @@ order: 2
 레이 아웃에 mylist.html 을 만들어서 해당 기능 넣고 해결.
 
 ```markdown
-# ./_layout/mylist.html
+# _layout/mylist.html
 ---
 layout: base
 ---
@@ -563,7 +546,7 @@ layout: base
 ```
 
 ```markdown
-# ./_my_collection/index.md
+# _my_collection/index.md
 ---
 layout: mylist
 title: 새로 분류할 collection 입니다.
@@ -587,7 +570,7 @@ tag와 category 로 분류 되있는 포스트를 못불러옴.
 list layout에 my collection에 있는 tag와 category를 가진 포스트를 불러오게끔 해서 해결
 
 ```markdown
-# ./_layout/list.html
+# _layout/list.html
 ...
 {% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
