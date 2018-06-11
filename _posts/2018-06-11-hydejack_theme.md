@@ -385,7 +385,7 @@ tag: [testpost]
 
 about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보가 표시될수있게함.
 
-* ./_layout/about.html
+* _layout/about.html
 
   about 페이지를 만들때 쓰임.
 
@@ -396,12 +396,12 @@ about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보�
 
 
 
-* ./_include/about.html
+* _include/about.html
 
 
 
 
-* ./_date/authors.yml
+* _date/authors.yml
 
   여기 안에서 author1, author2 등으로 사용자의 이름, 주소, 사진, github 등을 정의함
 
