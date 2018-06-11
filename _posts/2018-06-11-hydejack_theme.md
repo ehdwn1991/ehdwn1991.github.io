@@ -215,11 +215,9 @@ collections:
   featured_categories:
     permalink:         /category/:name/
     output:            true
-
   featured_tags:
     permalink:         /tag/:name/
     output:            true
-  
   my_collection:
     permalink:         /my_collection/:name/
     output: true
@@ -255,7 +253,6 @@ description: >
 menu: true
 order: 1
 ---
-
 # samplecollection.md
 ---
 layout: list
@@ -263,13 +260,11 @@ title: 새로 분류할 collection 입니다.
 description: >
 slug: test -> tag나 category의 slug같은것
 ---
-
 # samplepost.md
 ---
 layout: post
 title: sample post 입니다.
 description: >
-  
 my_collection: [test]
 categories: [category_test]
 tags: [tag_test]
@@ -396,7 +391,7 @@ about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보�
 
 ```html
 # ./_layout/about.html
-
+<!--
 {% assign plugins = site.plugins | default:site.gems %}
 <article class="page" role="article">
   {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
@@ -407,32 +402,19 @@ about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보�
     {% assign avatar = author.social.github | default:author.github.username | default:author.github %}
     {% include avatar-tag.html user=avatar %}
   {% endif %}
-
   <h1 class="page-title hr">{{ page.title }}</h1>
-
   {{ author.about | markdownify }}
-
   {% include message.html text=page.description hide=page.hide_description alt="" %}
-
   {{ content }}
 </article>
+...
+-->
 ```
 
 
 
 * ./_include/about.html
 
-```html
-# ./_layout/about.html
-{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
-
-{% if author.about %}
-  <aside class="about related mt4 mb4" role="complementary">
-    {% assign about_heading = site.data.strings.about | default:"About" %}
-    {% include author.html author=author heading=about_heading heading_tag='h2' %}
-  </aside>
-{% endif %}
-```
 
 
 
@@ -475,12 +457,10 @@ $ bundle install
 ...
 ## 내부링크 테스트
 ...
-
 // 2018-01-01-test.html ->jekyll를 통해 html 변환후
 ...
 <>
 ...
-
 
 ...
 ```
@@ -503,11 +483,12 @@ _my_collection폴더 안에 index.md의 기능 추가하고,
 
 my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
 
-```markdown
+```html
 # ./_layout/mycategory.html
 ---
 layout: base
 ---
+...
 <article class="page" role="article">
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
@@ -525,6 +506,7 @@ layout: base
 {% endif%}
 {% endfor %}  
 </article>
+...
 ```
 
 ```markdown
@@ -533,7 +515,6 @@ layout: base
 layout: mycategory
 title: Study
 description: >
-  
 menu: true
 order: 2
 ---
@@ -563,12 +544,10 @@ layout: base
   </header>
   <hr class="sr-only"/>
 {% endif %}
-
 {{content}}
 {% assign date_formats  = site.data.strings.date_formats               %}
 {% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
 {% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
-
 <ul class="related-posts">
 {% for post in site.my_collection %}
 {% if post.my_collection contains page.slug%}

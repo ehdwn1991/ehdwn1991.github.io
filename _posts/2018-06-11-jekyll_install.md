@@ -19,7 +19,7 @@ author: author2
 참고해주세요.
 
 
-##RVM&Ruby install
+## RVM&Ruby install
 >만약 OSX사용자시면, ruby가 깔려있습니다. 혹 모르니 brew install ruby 해주세요.  
 ```shell
 $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -54,8 +54,8 @@ $ rvm list known
  [ruby-]2.4[.1]
  ruby-head
  ...
-#여기서 주목해야 하는 부분은 시스템에서 제공하는 최신 루비 버전은 2.4.1이다
-#밑의 방식으로 설치하면 2.4.1의 버전이 설치되버림.
+# 여기서 주목해야 하는 부분은 시스템에서 제공하는 최신 루비 버전은 2.4.1이다
+# 밑의 방식으로 설치하면 2.4.1의 버전이 설치되버림.
 $ rvm install ruby_version
 $ rvm list
 $ rvm use ruby_version
@@ -75,7 +75,7 @@ $ rvm use ruby_version
 
 
 
-##jekyll install
+## jekyll install
 
 ```shell
 $ gem install jekyll
@@ -130,9 +130,9 @@ $ jekyll serve --livereload
 ```
 
 
-##issue
+## issue
 
-###problem1
+### problem1
 
 >apt-get 으로  ruby 설치 했을때 에러
 
@@ -148,11 +148,11 @@ $ Bundler: ruby: No such file or directory --
 command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 ```
 
-###problem2
+### problem2
 
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
-![[ruby]ubunturubyversion](assets/[ruby]ubunturubyversion.png)
+![[ruby]ubunturubyversion](https://github.com/ehdwn1991/Ubuntu/tree/master/assets/[ruby]ubunturubyversion.png)
 
 우분투에 ruby 2.5.1 최신 버전을 설치해야 했습니다.  
 앞에서 rvm을 설치 했기 때문에 rvm 으로 설치 진행 하겠습니다.
