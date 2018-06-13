@@ -16,17 +16,17 @@ layout: base
 
 
 
-<ul class="related-posts">
 {% for post in site.study %}
 {% if post.study contains page.slug%}
    <li>
   <a href="{{ post.url | relative_url }}" class="h4 flip-title">
     <span>{{ post.title }}</span>
-  </a>
-  <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:list_entry }}</time>
-</li>
+  </a> <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:list_entry }}</time></li>
+    <p class="post-excerpt" style="color: black ;opacity: 0.4;
+    filter: alpha(opacity=60) ">{{ post.description}}</p>
+ 
+
 {% endif%}
 {% endfor %}
-</ul>
 
 
