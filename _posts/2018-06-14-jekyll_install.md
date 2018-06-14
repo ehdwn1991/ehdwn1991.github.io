@@ -63,7 +63,7 @@ $ rvm use ruby_version
 >http://jekyllrb-ko.github.io/docs/installation/ 에서 루비 설치홈에 가보면 최신버전은
 >`ruby 2.5.1`이다.  
 * 루비 최신 버전 정보
-![a](assets/a.png)
+![a](https://raw.githubusercontent.com/ehdwn1991/Ubuntu/master/assets/a.png)
 
 
 >개개인의 선택이겠지만 저는 맥에서 최신 버전을 설치 했기때문에  

@@ -133,7 +133,17 @@ hydejack 구조
   블로그를 만들어 가면서 파악하면될듯.  
 
 
+## Post
 
+> _post
+
+jekyll 는 다양한 collection을 생성할수 있다.
+
+하지만 기본적으로 post라는 collection을 가지고 있고, _post폴더에 있는 post 들을 보여준다.
+
+`Issues`
+
+1. [포스트에 mycollection의 태그명을 추가해야함](#show-the-mycollection-slug-in-any-post)
 
 
 
@@ -327,7 +337,7 @@ $ tree -L 2
 
 그럼 이제 밑의 사진 처럼 구성이 되어 있을것입니다.
 
-![fol](https://github.com/ehdwn1991/Ubuntu/tree/master/assets/fol.png)
+![fol](https://raw.githubusercontent.com/ehdwn1991/Ubuntu/master/assets/fol.png)
 
 이제 각 폴더와 파일들을 상세하게 살펴보면 될것같습니다.
 
@@ -389,16 +399,34 @@ about 페이지나 각 포스트들의 footer에 사용자의 사진과 정보�
 
   about 페이지를 만들때 쓰임.
 
-```markdown
+```ruby
+{% raw %}
 # _layout/about.html
+{% assign plugins = site.plugins | default:site.gems %}
+<article class="page" role="article">
+  {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
+이부분이 _data안에 있는 authors.yml문서의 값을 불러옴
+  {% if author.picture %}
+    {% include srcset-img.html class="avatar" img=author.picture alt=author.name %}
+  {% elsif plugins contains 'jekyll-avatar' %}
+    {% assign avatar = author.social.github | default:author.github.username | default:author.github %}
+    {% include avatar-tag.html user=avatar %}
+  {% endif %}
 
+  <h1 class="page-title hr">{{ page.title }}</h1>
+
+  {{ author.about | markdownify }}
+
+  {% include message.html text=page.description hide=page.hide_description alt="" %}
+
+  {{ content }}
+</article>
+{% endraw %}
 ```
 
 
 
 * _include/about.html
-
-
 
 
 * _date/authors.yml
@@ -466,11 +494,15 @@ _my_collection폴더 안에 index.md의 기능 추가하고,
 
 my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
 
-```html
+```ruby
+{% raw %}
 # _layout/mycategory.html
-
-...
-<!--
+<article class="page" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include message.html text=page.description hide=page.hide_description %}
+  </header>
+  {{ content }}
 {% for test in site.my_collection %}
 {% if test.title != page.title %}
     {% if test.layout == "study_post" %}
@@ -480,9 +512,9 @@ my collection에 존재하는 class들의 리스트를 만들어줘야 한다.
        {{ test.title }} </a></li></h2>
     {% endif %}
 {% endif%}
-{% endfor %}  
--->
-...
+{% endfor %} 
+</article> 
+{% endraw %}
 ```
 
 ```markdown
@@ -507,7 +539,8 @@ order: 2
 새로 분류된 class에서 _my_collection 안에서 작성된 포스트들을 보여줘야한다.  
 
 레이 아웃에 mylist.html 을 만들어서 해당 기능 넣고 해결.
-~~~html
+```ruby
+{% raw  %}
 # _layout/mylist.html
 
 {% for post in site.my_collection %}
@@ -516,11 +549,13 @@ order: 2
   <a href="{{ post.url | relative_url }}" class="h4 flip-title">
     <span>{{ post.title }}</span>
   </a>
-  <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:list_entry }}</time>
+  <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">
+  {{ post.date | date:list_entry }}</time>
 </li>
 {% endif%}
 {% endfor %}
-~~~
+{% endraw %}
+```
 
 ```markdown
 # _my_collection/index.md
@@ -545,10 +580,9 @@ Hydejack에서 제공하는 list layout에서 mycollection에 있는 포스트�
 tag와 category 로 분류 되있는 포스트를 못불러옴.
 
 list layout에 my collection에 있는 tag와 category를 가진 포스트를 불러오게끔 해서 해결
-
-```markdown
+```ruby
+{% raw %}
 # _layout/list.html
-<!--
 ...
 {% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
@@ -565,17 +599,32 @@ list layout에 my collection에 있는 tag와 category를 가진 포스트를 �
     {% assign posts = site.posts %}
   {% endif %}
 {% endif %}
-    
-
   {% if posts%}
   {% assign posts = posts | sort: 'date,title' | reverse %}
   {% endif%}
  ...
- -->
+{% endraw %}
 ```
 
- 
-
+### home Layout can't show the post in mycollection
+`_layout/default.html 에 mycollection내용도 보여지게 추가`
+```ruby
+{% raw %}
+  <!--fix-->
+    {% assign allpost= site.posts %}
+    {% assign study_post = site.study | where:"layout", "post"%}
+    {% assign allpost = allpost | concat: study_post %}
+  {% if site.posts.size > 0 %}
+    <h2 class="hr">{{ strings.posts | default:"Posts" }}</h2>
+    <ul class="related-posts">
+      {% for post in allpost limit:10 %}
+        {% include post-list-item.html post=post %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <!--fix-->
+{% endraw%}
+```
 
 
 ### Can't show picture in about page and footer
@@ -591,6 +640,43 @@ srcset:
      2x:            https://placehold.it/256x256
 ...
 ```
+
+
+
+### show the mycollection slug in any post
+
+`모든 포스트에서 mycollection의 slug표시`
+
+_include/post.html에서 mycollection의 slug를 표시하도록 수정
+
+```ruby
+{% raw %}
+...
+ {% assign study_start     = site.data.strings.study_start     | default:"at " %}
+ {% assign study_separator      = site.data.strings.study_separator      | default:", "  %}
+...
+ {% include tag-list.html tags=post.study meta=site.study start_with=study_start separator=study_separator %}
+...
+{% endraw %}
+```
+
+
+
+_data/strings.ymll에서 mycollection의 slug 표시방법 추가
+
+```ruby
+{% raw %}
+...
+#Seperators
+study_start:             'at '
+study_separator:         ', '
+...
+{% endraw %}
+```
+
+
+
+
 
 
 

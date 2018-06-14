@@ -9,6 +9,8 @@ tags: [c]
 date: 2018-06-12
 author: author2
 ---
+* 
+{:toc}
 
 ## Variety of star
 `다양한 삼각형 출력`

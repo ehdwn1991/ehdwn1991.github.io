@@ -3,8 +3,6 @@ layout: page
 title: Programing
 description: >
   깃허브 코드 올라옴
-accent_image:
-  overlay:    true
 menu: true
 order: 1
 ---
@@ -33,7 +31,6 @@ order: 1
 * [jekyll]{:.heading.flip-title} ---Jekyll for blog
 
   {:.related-posts.faded}
-
 
 
 
