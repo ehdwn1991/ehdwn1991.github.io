@@ -25,13 +25,13 @@ layout: base
 <!-- Not order by Y M D -->
 {% assign category = site.featured_categories | where: "slug", page.slug | first %}
 {% if category %}
-  {% assign posts = site.categories[page.slug] %}
+  {% assign posts = site.categories[page.slug] | sort: 'title','first' | reverse%}
   {% assign s_category = site.study | where:"categories", page.slug%}
   {% assign posts = posts | concat: s_category %}
  {% else %}
   {% assign tag = site.featured_tags | where: "slug", page.slug | first%}
   {% if tag %}
-    {% assign posts = site.tags[page.slug] %}
+    {% assign posts = site.tags[page.slug] | sort: 'title','first' | reverse %}
     {% assign s_tag = site.study | where:"tags", page.slug%}
     {% assign posts = posts | concat: s_tag %}
   {% else %}
