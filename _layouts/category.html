@@ -31,7 +31,7 @@ layout: base
  {% else %}
   {% assign tag = site.featured_tags | where: "slug", page.slug | first%}
   {% if tag %}
-    {% assign posts = site.tags[page.slug] | sort: 'title','first' | reverse %}
+    {% assign posts = site.tags[page.slug] | sort: 'title','first'%}
     {% assign s_tag = site.study | where:"tags", page.slug%}
     {% assign posts = posts | concat: s_tag %}
   {% else %}
