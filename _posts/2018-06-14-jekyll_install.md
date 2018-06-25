@@ -143,7 +143,7 @@ _include/ga.html을 작성하고
 
 _include/body.html에 ga.html을 Include 하도록 추가
 
-![image-20180625121218798](assets/image-20180625121218798.png)
+![image-20180625121218798](./assets/img/post/image-20180625121218798.png)
 
 ## issue
 
