@@ -129,6 +129,11 @@ $ jekyll serve --livereload
 #실시간으로 적용된 부분을 다시 보여줌
 ```
 
+## Google search
+ [블로그 참고](https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/)
+
+
+
 
 ## issue
 

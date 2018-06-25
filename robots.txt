@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://ehdwn1991.github.io/sitemap.xml
