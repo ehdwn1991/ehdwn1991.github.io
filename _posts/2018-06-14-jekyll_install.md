@@ -130,7 +130,12 @@ $ jekyll serve --livereload
 ```
 
 ## Google search
- [블로그 참고](https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/)
+
+[구글 웹마스터](https://www.google.com/webmasters/tools/home?hl=ko)
+
+[블로그 참고](https://wayhome25.github.io/etc/2017/02/20/google-search-sitemap-jekyll/)
+
+[각 포털 검색등록](http://jinyongjeong.github.io/2017/01/13/blog_make_searched/)
 
 
 

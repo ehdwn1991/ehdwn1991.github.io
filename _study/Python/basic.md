@@ -24,5 +24,13 @@ author: author2
 
 * [pip installation](https://pip.pypa.io/en/stable/installing/)
 
-* 
+* [개발 환경 분리](http://guswnsxodlf.github.io/pyenv-virtualenv-autoenv)
+
+* [Ipython installatino](https://ipython.org/install.html)
+
+* python notebook install
+
+  $ipython nootbook
+
+  현재 있는 폴더를 웹에서 접근 가능. 웹안에서 컴파일은 물론 많은 기능 가능.
 
