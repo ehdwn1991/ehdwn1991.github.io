@@ -25,6 +25,8 @@ author: author2
   - 실행
   - 테스트
   - 유지보수
+
+
 ## CPU 구조
 
   Control unit<->ALU<->Processor resister(R1,R2,R3...)
@@ -55,6 +57,8 @@ author: author2
   - Control unit
 
     CPU의 명령어를 제어한다.
+
+
 
 
 ## 폰노이만 구조(최초의 컴퓨터 구조를 만듬)
@@ -102,9 +106,37 @@ $ gcc -v --save-temps -o test.out test.c 컴파일 전체 과정을 보여주고
 	test.c test.i test.s test.o test.out
 ```
 
+
 ## 상수, 변수
 
 - 변수(Variable) : 정수, 실수, 문자, 문자열 등의 형태를 갖춘 가변 데이터.
+
+  1. 일반 변수
+
+     일반적으로 사용하는 자료형에 해당하는 대입 변수이다.
+
+     ```c
+     //일반 변수 = 데이터
+     int a=4;
+     double b=3.2;
+     char p='a';
+     ```
+
+     
+
+  2. 포인터 변수
+
+     ```c
+     int temp_int=4;
+     double temp_d=3.4;
+     //포인터 변수 = 주소
+     int *a=&temp_int;
+     int *c=&3;
+     double *b=&temp_d;
+     char *p="abc";
+     ```
+
+     
 
 - 상수(Constant) : 값이 바뀌지 않는 데이터를 상수라 한다.
 
@@ -366,7 +398,9 @@ int a=1; => 0x 00 00 00 01
 
 ## Array
 
-배열은 자료형의 집합이라고 생각할수 있다.
+배열은 자료형의 집합이라고 생각할수 있다. 배열은 메모리 Stack 에 할당되며, main부분에 사용된
+
+배열은 프로그램 시작에 생성되고 종료시 삭제 된다. 하지만 함수 부분에서 사용한 배열은 함수 종료와 함께 사라진다. 때문에 동적할당의 필요성이 대두 될때가있다.
 
 ```c
 int arr[5];
@@ -429,4 +463,158 @@ arr[0]   ->   arr[1]   ->    arr[2]
 
 
 ## Shallow copy(얕은 복사) vs Deep copy(깊은 복사)
+
+* Shallow copy(얕은 복사)
+* Deep copy(깊은 복사)
+
+
+
+
+
+## Function
+
+함수는 3가지 단계이자 요소가 필요하다.
+
+1. 함수의 원형
+
+   main문 시작전에 전저리 부분 다음에 기술해줘야 한다.
+
+   ```c
+   #include <stdio.h>
+   void display();
+   int add(int a,int b);
+   ```
+
+   위의 예시처럼 원형을 기술할 때에는 매개변수부분은 써줘도되고 안써줘도 된다.
+
+2. 함수의 호출
+
+   ```c
+   int main(){
+       int res=0;
+       int a=3,b=10;
+       display();
+       res=add(10,20);
+       printf("%d",add(a,b));
+   }
+   ```
+
+   
+
+3. 함수의 정의
+
+   ```c
+   void display(int *ptr,int idx){
+       for(int i=0;i<idx;i++)
+           printf("%d has %d\n",i,*(ptr+i));
+   }
+   ```
+
+   
+
+## Pointer
+
+포인터라 하면 c언어의 포기하는 break point일지도 모른다. 하지만 포인터를 활용 하지못한다면
+
+다양항 프로그래밍이 불가능 하다 포인터 부분은 자다가도 벌떡 일어나서 정의할수 있어야한다.
+
+> 주소 연산자(&)
+
+&(Ampersand) 엔드 연산자, 주소연산자 등등으로 불린다. 정확한 명칭은 Ampersand이다.  
+
+주소 연산자는 해당 변수, 함수 등의 주소를 확인할수 있게 합니다.
+
+주소에 대해 생소할수 있습니다. 프로그램 실행시에 컴파일러에 의해 메모리에 각 영역에 따른 변수나 함수 등이 할당됩니다. 첫번째 예는 변수 입니다.
+
+
+
+* Local & Gloal Variable
+
+  Local Variable은 지역 변수라고도 하며, 해당 함수 범위 내에서만 사용할수 있는 변수입니다.
+
+  Global Variable은 전역 변수 라고도 하며, 코드 내의 그 어떤 부분에서도 사용할수 있습니다.
+
+  이제 두변수의 사용 예를 살펴보려 합니다.
+
+```c
+int global_b=10;
+int main(){
+
+	int local_a=10;
+	static int global_a=20;
+	printf("In main funtion local variable local_a has %d\n",local_a );
+	printf("In main funtion local variable local_a address %p\n",&local_a );
+	printf("In main funtion static global_a has %d\n",global_a );
+	printf("In main funtion static global_a address %p\n",&global_a );
+	printf("In main funtion global variable global_b has %d\n",global_b );
+	printf("In main funtion global variable global_b address %p\n",&global_b );
+	local_func(local_a,global_a);
+	point_func(&local_a);
+	printf("%d\n",local_a);
+}
+
+void local_func(int a,int b){
+	printf("In local funtion printf local_a has: %d address: %p\n\n",a,&a);
+	printf("In local funtion printf global_a has: %d address: %p\n\n",b,&b);
+	printf("In local funtion printf global_b has: %d address: %p\nbut not using parameter\n",global_b,&global_b);
+	a=10;
+	printf("a=10;\nlocal_a change 10 to 20 not using poiter\n");
+}
+void point_func(int *p){
+	*p=100;
+}
+```
+
+> 메인 함수에서 local_a와 global_a를 선합니다. 하지만 global_a는 앞에 static이 붙습니다.
+>
+> 왜일까요? 바로 전역 변수 처럼 사용하기 위합입니다. 변수 앞에 static을 붙이면 전역 변수 저장 영역인 data영역에 할당됩니다. 마치 전역변수 처럼요.
+
+```c
+In main funtion local variable local_a has 10
+In main funtion local variable local_a address 0x7ffeed43898c
+In main funtion static global_a has 20
+In main funtion static global_a address 0x1027c801c
+In main funtion global variable global_b has 10
+In main funtion global variable global_b address 0x1027c8018
+    
+//into local_fun
+In local funtion printf local_a has: 10 address: 0x7ffeed43894c
+In local funtion printf global_a has: 20 address: 0x7ffeed438948
+In local funtion printf global_b has: 10 address: 0x1027c8018
+but not using parameter
+a=20;
+local_a change 10 to 20 not using pointer
+//end local_func
+after local_func, a has 10 
+
+local_a passing by point_func
+//into point_func
+In point_func change local_a 10 to 100
+//end point_func
+    
+after point_func, Now local_a has 100
+```
+
+local_func에서 local_a의 값을 변화 시키려 했지만 메인 함수에서 local_a의 값을 출력해보니 그대로 입니다. 왜일까요?
+
+local_fun는 전달 인자를 int a로 받았습니다. 이러한 매개변수는 값의 복사가 발생합니다.
+
+바로 `call by value` 의 상황이죠. 즉, 메모리에 변수의 복사가 발생하고, 이 변수는 함수의 종료와
+
+동시에 바로 삭제 됩니다.
+
+`call by value`
+
+```c
+int main(){
+    int local_a=10;
+    static int global_a=20;
+    local_func(local_a,global_a);
+}
+
+void local_func(int a,int b){
+	a=20;
+    b=400;
+}
+```
 
