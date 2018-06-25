@@ -137,8 +137,13 @@ $ jekyll serve --livereload
 
 [각 포털 검색등록](http://jinyongjeong.github.io/2017/01/13/blog_make_searched/)
 
+google analytics를 적용하기 위해서 
 
+_include/ga.html을 작성하고
 
+_include/body.html에 ga.html을 Include 하도록 추가
+
+![image-20180625121218798](assets/image-20180625121218798.png)
 
 ## issue
 
