@@ -4,7 +4,7 @@ title: 파이썬 기본
 comments: true
 description: >
   
-study: []
+study: [study_lang_python]
 tags: [python]
 date: 2018-06-18
 author: author2
@@ -21,4 +21,8 @@ author: author2
 * Compile
 
   Command+B
+
+* [pip installation](https://pip.pypa.io/en/stable/installing/)
+
+* 
 

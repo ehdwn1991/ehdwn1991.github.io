@@ -14,16 +14,6 @@ author: author2
 ## [1Byte access](https://github.com/ehdwn1991/Embeded.study/blob/master/C_programing/0615/address_swap.c)
 
 `강제 캐스팅에 의한 1byte 단위 접근법`
-<!-- MarkdownTOC -->
-
-- Pointer swapping within address
-- Substraction of max and min
-- Find specific alphabet
-- Implementation of Strcpy
-- \[Implementation of Strcat\]\(\)
-- Implementation of Stack
-
-<!-- /MarkdownTOC -->
 
 ```c
 다음과 같이 출력되도록 코드를 짜시오.
