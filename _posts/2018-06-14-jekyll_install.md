@@ -165,7 +165,7 @@ command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 
 >osx와 우분투에서 각기 다른 버전의 ruby 때문에 문제 발생
 
-![[ruby]ubunturubyversion](https://github.com/ehdwn1991/Ubuntu/tree/master/assets/[ruby]ubunturubyversion.png)
+![[ruby]ubunturubyversion](https://raw.githubusercontent.com/ehdwn1991/Ubuntu/master/assets/%5Bruby%5Dubunturubyversion.png)
 
 우분투에 ruby 2.5.1 최신 버전을 설치해야 했습니다.  
 앞에서 rvm을 설치 했기 때문에 rvm 으로 설치 진행 하겠습니다.
