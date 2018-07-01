@@ -603,6 +603,8 @@ local_fun는 전달 인자를 int a로 받았습니다. 이러한 매개변수�
 
 동시에 바로 삭제 됩니다.
 
+  
+
 `call by value`
 
 ```c
@@ -612,9 +614,72 @@ int main(){
     local_func(local_a,global_a);
 }
 
-void local_func(int a,int b){
-	a=20;
+void local_func(int a,int b){ => 변수의 값을 함수의 변수로 복사하는것입니다.
+	a=20; =>함수 내부의 변수는 함수의 시작과 동시에 생성되고 종료와 함께 반환됩니다.
     b=400;
 }
 ```
+
+Call by value는 매개변수로 값을 받아와 함수의 메모리로 복사해오는것 입니다.
+
+그래서 함수내부에서 아무리 값을 바꿔도, 실상은 함수로 복사된 값을 변환하는 것이므로,
+
+본래의 전달인자로 들어온 변수는 그대로입니다.
+
+그럼 본래 변수의 값을 바꾸려면 어떻게 해야할까요?  
+
+
+
+`call by reference(call by address)`
+
+사실 C에서는 Call by reference 가 완벽하게 작동하지는 않습니다.  
+
+아이라 폴과 알켈리의 `A Book on C` 에서 P.252 의 call by reference 를 언급하자면,
+
+> How the used of addresses of variables as arguments to functions can produce  
+>
+> the effect of "call by reference".
+
+라고 명시되어 있습니다.
+
+다른 언어에서는 call by reference의 mechanism이 존재 하지만 C에서는 존재 하지 않습니다.
+
+하지만 비슷한 동작을 할수 있게끔 만들어줄수는 있습니다. 일단 예제를 보죠.
+
+```c
+int main(){
+    int a=3, b=7;
+    printf("a: %d  b: %d\n",a,b);
+    swap(&a,&b);
+	printf("a: %d  b: %d\n",a,b);
+}
+
+void swap(int *a, int *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp; 
+}
+```
+
+이전의 call by value에서는 함수에서의 값의 복사 때문에 본래의 변수의 값은 변하지 안았습니다.
+
+근데 이번 함수 swap은 매개변수(int *a)가 포인터이며, 전달인자(&a)를 변수의 주소를 받고있습니다.  
+
+결과는 어떨까요?
+
+```c
+a: 3  b: 7
+a: 7  b: 3
+```
+
+값의 변화가 있습니다. 뭘까요?
+
+바로 call by reference의 효과 입니다. 변수의 주소를 전달 받아 직접 값을 바꾸는 것이죠.
+
+하지만 `A Book on C`에서 언급했던 완벽한 call by reference가 아닌 이유가 여기있습니다.
+
+사실상 주소를 전달받아 값을 바꾼 다는 것은, 주소의 값을 call by value한다는 것이죠.
+
+
 

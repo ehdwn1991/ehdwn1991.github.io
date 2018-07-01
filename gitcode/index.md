@@ -22,7 +22,7 @@ order: 1
 
   {:.related-posts.faded}
 
-
+* [Data Structure]{:.heading.flip-title}  ---C로 구현한 자료구조
 ## [Linux]{:.heading.flip-title}
 
 {:.hr}
@@ -44,9 +44,10 @@ order: 1
 
 [Personal Problem]: ../_featured_categories/personalcode/personalcode.md
 [Backjoon Problem]: /category/backjoon-category/
+[Data Structure]: /tag/datastructure/
+
 
 [Linux]: /category/linux/
 [etc]: /tag/etc/
 [jekyll]: /tag/jekyll/
-
 
