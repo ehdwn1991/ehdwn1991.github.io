@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: 파이썬 수업
