@@ -681,5 +681,65 @@ a: 7  b: 3
 
 사실상 주소를 전달받아 값을 바꾼 다는 것은, 주소의 값을 call by value한다는 것이죠.
 
+잘 이해가 안가는데 다음 예제를 살펴보죠.
+
+```c
+//출처 : 나무위키
+void testFunc(int* fptr) {
+    fptr = NULL;
+}
+int main(void) {
+    int num = 12;
+    int* ptr = &num;
+    printf("%d\n",*ptr );
+    testFunc(ptr);
+    printf("%d\n",*ptr );
+    return 0;
+}
+```
+
+testFunc라는 함수는 포인터를 인자로 받아 포인터의 값을 NULL로 바꿉니다.
+
+자 그러면 코드를 어떻게 동작을 할까요?
+
+메인 함수에서 ptr은 num 의 주소를 갖고 있습니다. 그리고 그 주소에 대한 값을 testFunc에  
+
+전달 하고 있습니다. 그럼 testFunc를 완료 하고 나면 ptr에는 NULL이 저장 될테고,
+
+더이상 num을 가르킬수 없습니다. 과연  결과도 그럴까요?
+
+```c
+12
+12
+```
+
+예상과는 다르게 num의 값은 변하지 안았습니다.
+
+이게 뭘 뜻하는 걸까요?
+
+C에서는 주소값을 전달 받아 해당 주소로 이동후 값을 변화 할수 있지만, 그 과정에서 정확히는  
+
+전달 인자로 포인터 변수를 전달한다. 즉, 포인터 변수 ptr을 전달 하므로 이는 `call by value`
+
+라고 할수 있다. 그러므로 C에서는 `call by reference`는 없다고 정의 할수 있다.
+
+다시 말해 함수에 인자를 받아 인자값 자체를 변화 시키는 것은 불가능 하다, 하지만 인자값의 주소로 건너가 그 값을 바꾸는 것은 가능하다, 하지만 이것은 값의 의한 복사 `call by value` 이다.
+
+때문에 `call by reference`가 아니라 `call by address`  or  ` call by pointer` 
+
+라고 불러야 한다.
+
+그럼 진정한 call by reference는 어디에 존재하는 것이가?
+
+바로 c++부터 그 개념이 등장한다.
+
+
+
+`call by reference`
+
+
+
+
+
 
 
