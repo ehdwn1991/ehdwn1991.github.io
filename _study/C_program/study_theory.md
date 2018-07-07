@@ -605,7 +605,7 @@ local_fun는 전달 인자를 int a로 받았습니다. 이러한 매개변수�
 
   
 
-`call by value`
+### call by value
 
 ```c
 int main(){
@@ -630,7 +630,7 @@ Call by value는 매개변수로 값을 받아와 함수의 메모리로 복사�
 
 
 
-`call by reference(call by address)`
+###  call by reference(call by address)
 
 사실 C에서는 Call by reference 가 완벽하게 작동하지는 않습니다.  
 
@@ -725,7 +725,9 @@ C에서는 주소값을 전달 받아 해당 주소로 이동후 값을 변화 �
 
 다시 말해 함수에 인자를 받아 인자값 자체를 변화 시키는 것은 불가능 하다, 하지만 인자값의 주소로 건너가 그 값을 바꾸는 것은 가능하다, 하지만 이것은 값의 의한 복사 `call by value` 이다.
 
-때문에 `call by reference`가 아니라 `call by address`  or  ` call by pointer` 
+하지만 `call by value` 로 전달하는 `value` 가 주소값이 이기 때문에 `call by value` 라고 부는것!!
+
+결론은  `call by reference`가 아니라 `call by address`  or  ` call by pointer` 
 
 라고 불러야 한다.
 
@@ -735,11 +737,235 @@ C에서는 주소값을 전달 받아 해당 주소로 이동후 값을 변화 �
 
 
 
-`call by reference`
+### call by reference
+
+c++ 에서는 참조 변수 라는 것이 존재한다.
+
+```c
+int a=10;
+int &b=a;
+```
+
+c에서는 &(ampersand)는 주소 값의 반화을 의미했다. 하지만 c++에서는 참조 매개변수가 존재 하며
+
+값을 복사 하는 `call by value` 가 아닌 주소 값을 받아와 참조에 의한 접근이 가능하다.
+
+다음 c++ 예시를 살펴보자.
+
+```c++
+#include <stdio.h>
+#include <iostream>
+void func1(int *q);
+void func2(int *q);
+void func3(int &q);
+int main(){
+	int a=10;
+	int *point=&a;
+	printf("a address: %p  value: %d \n\n",&a,a);
+	func1(&a);
+	printf("After func1 a value: %d\n",a);
+	printf("\n===================================\n");
+	printf("point address:%p  point has : %p  value: %d \n",&point,point,*point );
+	func2(point);
+	printf("After func2 a value: %d\n",a);
+	printf("\n===================================\n");
+	printf("Now we declaration int &ref_point=a\n");
+	int &ref_point=a;
+	printf("point address:%p  point has : %p  value: %d \n",&point,point,*point );
+	func3(ref_point);
+	printf("After func3 a value: %d\n",a);
+
+}
+void func1(int *q){
+	printf("In Func1\nNow we change value of a to 100\nSo q=20;\nif you think change the value?\n");
+    //q=20;
+	printf("q=20; is error occured\n");
+	printf("q address: %p  value: %d \n",&q,*q);
+	printf("a address: %p  value: %d \n",q,*q);
+}
+void func2(int *q){
+	printf("In Func2\nNow we change value of a to 100\nSo *q=100;\nif you think change the value?\n");
+	*q=100;
+	printf("q address: %p  value: %d \n",&q,*q);
+	printf("a address: %p  value: %d \n",q,*q);
+}
+void func3(int &q){
+	printf("In Func3\nNow we change value of a to 100\nSo *q=3000;\nif you think change the value?\n");
+	q=3000;
+	printf("q address: %p  value: %d \n",&q,q);
+}
+```
+
+내용이 복잡하다. 우선 각 함수들이 뭘하는 지를 살펴보자.
+
+fun1~3까지의 함수가 존재하는데,
+
+`func1`
+
+```c++
+//일반 적인 c에서의 call by address의 예시이다.
+void func1(int *q){
+	printf("In Func1\nNow we change value of a to 100\nSo q=20;\nif you think change the value?\n");
+    //q=20; => 진정한 call by reference가 되려면 주소로 받아온 값을 바꿀수 있어야한다.
+	printf("q=20; is error occured\n");
+	printf("q address: %p  value: %d \n",&q,*q);
+	printf("a address: %p  value: %d \n",q,*q);
+}
+```
+
+func1은 매개변수로 포인터 변수 를 사용 하며, 전달 인자로 주소를받는다.
+
+만약 q=20을 하면 어떻게 될까?
+
+사실상 main함수에서 `int *point=&a;` 라고 선언했다는 것은
+
+```c++
+//예를 들어 변수 q는 0x2000에 존재 하며 a변수는 0x1000에 있다고 치자.
+point == &a ==0x1000
+&point == 0x2000(address of q q변수의 주소)
+*point == a(a의 값 10)
+```
+
+이제 위의 내용을 머리속에 넣고 정신 단디 차리고 하나씩 해석해 보자.
+
+먼저 func1에에서 전달 인자로 &a를 전달 했고 *q 포인터 변수로 받았다.
+
+이때 무슨일이 생길까?
+
+```c++
+//In func1
+//메인 함수에서 a의 주소를 전달 했다.
+//그러면 func1함수에서는 함수 시작과 동시에 int *q에 대한 변수 공간을 생성한다.
+//위에서 a변수의 주소는 0x1000이였다. 그렇다면 함수로 a의 주소를 전달하고 나서도
+//그래도 a의 변수를 참조하여 접근이 가능할까?
+//진정한 call by reference 라면 받아온 주소로 바로 접근이 가능해야할것이다.
+//===============컴파일 결과==============
+a address: 0x7ffee1f8173c  value: 10 
+In Func1
+Now we change value of a to 100
+So q=20;
+if you think change the value?
+q=20; is error occured
+q address: 0x7ffee1f816e8  value: 10 
+a address: 0x7ffee1f8173c  value: 10 
+After func1 a value: 10
+```
+
+결과를 살펴 보자.
+
+우리가 원하는 결과는 받아온 a의 주소와 매개변수 q의 주소가 같아야한다.
+
+근데 보아하니 주소값은 두개가 존재한다. 이건 뭘 뜻할까?
+
+func1이 실행되는 순간  `int *q` 에 대한 변수 공간이 마련된다.
+
+이곳은 주소는 `0x7ffee1f816e8` 이다. 그리고 해당 주소한에 들어있는 값이 `0x7ffee1f8173c(a의 주소)`이다.
+
+즉 값에 의한 복사인 `call by value` 로 인해 a의 주소 값을 받아와 접근한다는것이다.
+
+때문에 q안에는 a의 주소값인 `0x7ffee1f8173c` 이 들어 있고 ,
+
+`q=20;` 이라는 재할당을 한다는 것은 q가 갖고는 있는 값을 20 으로 바꾼 다는 것이고,
+
+q는 포인터 변수 이기 때문에 20의 주소에 있는 값을 가져와야 한다고 해석한다.
+
+하지만 마음대로 메모리를 접근할수는 없다 컴파일 단계에서
+
+이런 위험한 코드는 막아 버리기때문에 에러를 토해낸다.
+
+결국 func1은 `call by value` 에 의한 함수 내부의 포인터 변수 공간에
+
+전달 인자로 받아온 a의 주소를 저장 하여 a의 값에 접근 한다는것이다.
+
+진정한 `call by reference`  는 실패 했다.
 
 
 
+그럼 이제 두번째 함수 `func2` 를 살펴보자.
+
+`func2`
+
+```c++
+void func2(int *q){
+	printf("In Func2\nNow we change value of a to 100\nSo *q=100;\nif you think change the value?\n");
+	*q=100;
+	printf("q address: %p  value: %d \n",&q,*q);
+	printf("a address: %p  value: %d \n",q,*q);
+}
+```
+
+사실상 func1과 별 차이가 없다. 하지만 func2에서는 a의 변수를 포인터로 접근하여
+
+값을 변경하기 때문에 a값의 변화가 생긴다. 
+
+하지만 위에서 봤듯이 이는 `call by value` 에 의한 `call by reference` 를 흉내 낸것이다.
+
+우리는 이러한 과정을 `call by address`  or  `call by pointer` 라고 부른다.
+
+그럼 진정한 `call by reference` 는 어떻게 해야 볼수 있을까?
+
+위에서 `데니스 리치` 의 말을 언급 하면 C에서는 `call by reference` 는 없다 .
+
+하지만 C++에서는 참조 변수라는것이 존재한다.
+
+이제 func3를 살펴 보자.
 
 
 
+`func3`
+
+```c++
+int main(){
+    int a=10;
+    ...
+    int &ref_point=a;
+    func3(ref_point);
+}
+
+void func3(int &q){
+	printf("In Func3\nNow we change value of a to 100\nSo *q=3000;\nif you think change the value?\n");
+	q=3000;
+	printf("q address: %p  value: %d \n",&q,q);
+}
+```
+
+우리가 알던 C의 문법에서는 볼수 없는 변수 선언이 있다. 이게 뭘까 싶다.
+
+일단 실행 결과를 살펴 보자.
+
+```c++
+===================================
+Now we declaration int &ref_point=a
+ref_point address:0x7ffeee79373c  ref_point has : 100 
+In Func3
+Now we change value of a to 3000
+So q=3000;
+if you think change the value?
+q address: 0x7ffeee79373c  value: 3000 
+After func3 a value: 3000
+```
+
+정말 신박함의 극을 달린다 할수 있다. `int &ref_point=a` 참조 변수에 a의 주소 값도 아닌
+
+a를 할당 하고 있다. 그리고 ref_point의 주소를 출력해보니 ref_point의 별도의 변수 공간이 아닌
+
+a의 주소를 출력하고 있다.
+
+그럼 함수 안에서는 어떨까?
+
+물론 q 변수에 대해서도 별도의 변수 공간을 할당하지 않는다.
+
+함수내에서도 a의 주소 를 출력하고 있으며, q로 값을 3000으로 재할당한후,
+
+함수가 종료되고 나서 a의 값을 출력해 보니 3000으로 바뀌어 있다.
+
+진정한 `call by reference` 란 값에 의한 복사를 통해 변수에 접근하는 것이 아닌
+
+> 값의 복사 없이 변수 자체에 접근 할수 있어야 한다는 것
+
+그래서 데니스 리치는 `call by reference` 에 대해
+
+> ..."call by reference"..., in which the called routine has access to the original argument, not a local copy.
+
+"호출 과정 내에서 지역 값의 복사 없이 원본 인자에 접근 할수 있어여하 한다" 라고 말한 것이다.
 
