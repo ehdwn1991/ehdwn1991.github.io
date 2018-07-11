@@ -5,7 +5,7 @@ comments: true
 description: >
   
 
-study: [study_intro_coe]
+study: [study_coe]
 categories: [personal_prob]
 tags: [c,backjoon_level]
 date: 2018-05-05

@@ -31,7 +31,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-titles-from-headings"
 #  gem 'jekyll-multiple-languages-plugin'
-  gem 'jekyll-toc'
+  # gem 'jekyll-toc' # nokogiri 버전 에러남
 
 end
 

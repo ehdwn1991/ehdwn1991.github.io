@@ -36,7 +36,7 @@ GEM
     jekyll-optional-front-matter (0.3.0)
       jekyll (~> 3.0)
     jekyll-paginate (1.1.0)
-    jekyll-redirect-from (0.13.0)
+    jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
     jekyll-relative-links (0.5.3)
       jekyll (~> 3.3)
@@ -48,8 +48,6 @@ GEM
       jekyll (~> 3.3)
     jekyll-titles-from-headings (0.5.1)
       jekyll (~> 3.3)
-    jekyll-toc (0.6.0)
-      nokogiri (~> 1.7)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     kramdown (1.17.0)
@@ -59,9 +57,6 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
-    mini_portile2 (2.3.0)
-    nokogiri (1.8.3)
-      mini_portile2 (~> 2.3.0)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.2)
@@ -92,7 +87,6 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-titles-from-headings
-  jekyll-toc
   tzinfo-data
 
 BUNDLED WITH
