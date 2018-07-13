@@ -106,10 +106,216 @@ $ gcc -v --save-temps -o test.out test.c 컴파일 전체 과정을 보여주고
 	test.c test.i test.s test.o test.out
 ```
 
+## C Concept
+
+일단 이부분은 [ISO/IEC 9899:TC3](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) 의 표준을 보고 작성하였다.
+
+### scope
+scope에 자세히 들어가기 전에 먼저 선행되야 하는 개념이있다.
+```c
+    int    i=0;
+    선언자  식별자
+```
+코딩을 하면서 `int i` 정수형 변수 선언은 그냥 자연스레 넘어갔었다.
+
+하지만 scope를 이해하기 위해서 더욱 자세하게 파고들어 보자.
+
+두가지 개념을 살펴보자.
+
+#### Declarator
+
+  선언자 라고 하며, Type declarator라고도 한다.
+
+  선언자의 역할은 변수의 형을 지정 하는것이다.
+
+  위의 예제에 적용해 보자면 `int` 는 정수형 선언자 이다.
+
+#### Identifier
+식별자 라고하며, 형선언자로 인해 특정 데이터 형을 가질수 있는 변수가 된다.
+
+`int` 는 Type sepcifier(형식 지정자) 라고 한다.
+
+즉, `i` 는 `int` 형 변수에 대한 식별자이다.
+
+하지만 식별자는 반드시 변수에만 해당하는 것은 아니다.
+
+예를 들어 `void main` main은 void형 함수에 대한 식별자 이며,
+
+`printf()` 는 printf 함수에 대한 식별자 이다.
+
+#### Visible
+
+식별자는 오직 자신이 존재 하는 scope안에서만 사용될수 있다.
+
+`Inner Scope` , `Outer Scope`의 개념을 이해 하는게 편할것 같다.
+
+예제를 살펴 보자.
+
+```c
+#include <stdio.h>
+int glo=10;
+void main(){ //scope 1
+  int a=3;
+  
+  { //scope 2
+    int b=4;
+    { //scope 3
+      int c=8;
+      printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+    }
+    printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+  }
+printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+}
+```
+
+이제 결과를 예상해 보자. 여태 배운 대로 라면 Inner scope 에서 선언된 식별자는
+
+outer scope에서 사용할수 없다. 그렇다면 scope 2 에서는 scope3 의 정수형 식별자
+
+c를 사용할수 없고, scope 1 에서는 정수형 식별자 b,c를 사용할수 없다.
+
+그럼 결과를 보자.
+
+```c
+test.c:12:48: error: use of undeclared identifier 'c'
+    printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+                                               ^
+test.c:14:42: error: use of undeclared identifier 'b'
+printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+                                         ^
+test.c:14:44: error: use of undeclared identifier 'c'
+printf("a: %d  b: %d  c: %d glo: %d\n",a,b,c,glo );
+```
+
+당연히 outer scope에서 inner scope의 식별자를 사용하는것은 불가능하다.
+
+때문에 scope 2 에서는 scope 3 의 식별자를 사용할수 없고,
+
+scope 1 에서는 scope 2, scope 3 의 식별자를 사용할수 없다.
+
+`C99` 표준에 서는  Scope 에 대해 다음과 같이 정의하고 있다.
+
+> If so, the scope of one entity (the inner scope) will be a strict subset of the scope of the other entity (the outer scope). 
+>
+> Within the inner scope, the identifier designates the entity declared in the inner scope; the entity declared in the outer scope is hidden (and not visible) within the inner scope.
+
+#### Valid scope
+
+같은 이름과 형식(Same entities)의 식별자 들은 다른 scope에서 사용되거나,
+
+다른 파일(Different name space)에서 사용되어야 한다.
+
+#### Variety of Identifier
+
+각 종류의 식별자는 그 자체의 scope를 가진다.
+    
+
+##### function : 함수 내부에서의 식별자 
+
+function은 자체의 code block `{}` 안에서 선언된 식별자는
+
+해당 scope안에서만 사용될수 있으며, global, static 의 속성이 없으면,
+
+해당 scope 밖의 식별자를 사용할수 없다.
+
+##### function prototype : 함수 선언 parameter에서의 식별자
+
+예를 들어 fuction을 선언 하고 사용 하기 위해선 
+
+전처리 부분에 function에 대한 정보를 알려줘야 한다.
+
+예제를 보자
+
+```c
+#include <stdio.h>
+int add(int a,int b); // Function prototype
+int main(){
+  int a=1;
+  printf("%d\n",add(a,a));
+}
+
+int add(int a, int b){
+  return a+b;
+}
+```
+
+function prototype 안에서의 `int a`와 main함수 scope안의 `int a` 는 
+
+중복 되지만 문제 되지 않는 이유는, 서로 다른 inner scope이기 때문에 
+
+서로 영향을 주지 않는다.
+
+
+##### file : 서로 다른 파일내부의 식별자
+
+
+##### block : code block내의 식별자
+
+file scope 와 block 은 다음 예제를 보고 이해해 보자.
+
+  ```c
+   //In add.c
+    #include <stdio.h>
+
+    int add(int a,int b); // Function prototype
+    void main() //main도 main함수의 식별자 이다.
+    {
+      int i=1; //main 함수 code block안에 있는 정수형 식별자 i이다.
+      // 즉 main function 안에 존재 하는 정수형 식별자 이다.
+      int result=0;
+      { // code block
+        int b=10;
+        printf("i+b: %d\n",i+b);
+      }
+      result = add(i,i); //add도 add함수의 식별자 이름이다.
+      printf("%d",result); //printf 도 printf함수의 식별자
+    }
+    
+    int add(int a, int b){ // add function내부에서 사용하는 함수 a,b 이다.
+      return a+b; 
+    }
+    
+    //In sub.c
+    //sub.c로 건너 오면 같은 이름의 식별자도 다른 name space에 존재하기 때문에
+    // 서로 영향을 주지 안는다.
+    #include <stdio.h>
+    static int result =0;
+    int sub(int a,int b);
+    void main()
+    {
+      int i=1; // add.c를 벗어난 다른 name space에서 사용된 같은 이름의 식별자이다.
+      result = sub(i,i);
+      printf("%d",result);
+    }
+    
+    int add(int a, int b){
+      return a-b;
+    }
+  ```
+
+이제 scope에 대해 어느정도 이해를 했을 것이다.
+
+추후 내용에 `Parameter` 와 `Argument` 에 대한 내용이 나온다.
+
+이둘의 관계처럼 선언자와 식별자의 관계는 중요하다.
+
+
+
+
+
 
 ## 상수, 변수
 
-- 변수(Variable) : 정수, 실수, 문자, 문자열 등의 형태를 갖춘 가변 데이터.
+변수(Variable) : 정수, 실수, 문자, 문자열 등의 형태를 갖춘 가변 데이터.
+
+>변수는 두가지 특징을 갖는다.
+>
+>Scope - 특정 code block 안에서 실행, 참조된다.
+>
+>Life time - 특정 code block안에서 존재하고 벗어나면 소멸 한다
+
+
 
   1. 일반 변수
 
