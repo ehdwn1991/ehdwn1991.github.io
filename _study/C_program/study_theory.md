@@ -79,7 +79,45 @@ author: author2
 
   주로 동적 할당 할때나 임베디드 시스템을 다룰때 메모리 구조와 영역을 알고 있으면 편하다.
 
-  [geeks를 참고 하면서 공부해보자](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+
+
+### local variables
+can be stored either on the stack or in a data segment depending on whether they are auto or static. (if neither auto or static is explicitly specified, auto is assumed)
+
+
+### global variables
+are stored in a data segment (unless the compiler can optimize them away, see const) and have visibility from the point of declaration to the end of the compilation unit.
+
+
+### static variables
+are stored in a data segment (again, unless the compiler can optimize them away) and have visibility from the point of declaration to the end of the enclosing scope. Global variables which are not static are also visible in other compilation units (see extern).
+
+
+### auto variables
+are always local and are stored on the stack.
+
+
+### the register modifier
+tells the compiler to do its best to keep the variable in a register if at all possible. Otherwise it is stored on the stack.
+
+
+### extern variables
+are stored in the data segment. The extern modifier tells the compiler that a different compilation unit is actually declaring the variable, so don't create another instance of it or there will be a name collision at link time.
+
+
+### const variables
+can be stored either on the stack or a readonly data segment depending on whether they are auto or static. However, if the compiler can determine that they cannot be referenced from a different compilation unit, or that your code is not using the address of the const variable, it is free to optimize it away (each reference can be replaced by the constant value). In that case it's not stored anywhere.
+
+
+### the volatile modifier
+tells the compiler that the value of a variable may change at anytime from external influences (usually hardware) so it should not try to optimize away any reloads from memory into a register when that variable is referenced. This implies static storage.
+
+
+
+
+[geeks를 참고 하면서 공부해보자](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+
+[Storage class in C](https://www.geeksforgeeks.org/storage-classes-in-c/)
 
   
 
@@ -257,7 +295,7 @@ file scope 와 block 은 다음 예제를 보고 이해해 보자.
   ```c
    //In add.c
     #include <stdio.h>
-
+    extern int test;
     int add(int a,int b); // Function prototype
     void main() //main도 main함수의 식별자 이다.
     {
@@ -270,6 +308,7 @@ file scope 와 block 은 다음 예제를 보고 이해해 보자.
       }
       result = add(i,i); //add도 add함수의 식별자 이름이다.
       printf("%d",result); //printf 도 printf함수의 식별자
+      printf("%d",test); 
     }
     
     int add(int a, int b){ // add function내부에서 사용하는 함수 a,b 이다.
@@ -280,7 +319,8 @@ file scope 와 block 은 다음 예제를 보고 이해해 보자.
     //sub.c로 건너 오면 같은 이름의 식별자도 다른 name space에 존재하기 때문에
     // 서로 영향을 주지 안는다.
     #include <stdio.h>
-    static int result =0;
+    static int result =0; //여기에 왜 static을 붙였을까?
+    int test=100;
     int sub(int a,int b);
     void main()
     {
@@ -293,6 +333,100 @@ file scope 와 block 은 다음 예제를 보고 이해해 보자.
       return a-b;
     }
   ```
+
+위의 코드를 살펴 보면 특이 부분이 있다.
+
+##### static
+
+add.c 와 sub.c의 전역 변수중에 이름이 같은게 있다.
+
+두변수의 이름은 모두 result 이다. 하지만 해당 코드들은 실행시 에러가 발생하지 않는다.
+
+왜일까?
+
+예상 대로 라면 같은 이름의 전역변수는 data segment에서 충돌될것이다.
+
+하지만 전역변수에 staitc을 붙여 주면, 해당 전역 변수는
+
+해당 파일의 file scope를 벗어나지 못한다.
+
+때문에 sub.c의 result 는 sub file의 file scope 가 끝남과 동시에
+
+메모리에서 해제 된다.
+
+
+
+##### extern
+
+add.c 를 보면 `extern int test` 를 하고 있다. 
+
+뭘까? test 식별자는 add.c file scope 내에는 존재하지 않는다.
+
+하지만 sub.c 를 보면 전역 변수로 `int test=100` 이 존재 한다.
+
+그럼 이제 어느정도 감이 왔을겄이다.
+
+extern은 file scope를 벗어나서 다른 file scope내에 있는
+
+전역 변수를 사용하고자 할때 쓰는것.
+
+> extren 은 다른 file scope 의 전역 변수의 사용을 가능케 한다.
+
+그럼 이제 예시를 살펴보자.
+
+```c
+//t1.c
+#include <stdio.h>
+#include "t.h"
+extern int test;
+int main(){
+
+  printf("%d\n",test );
+  test+=1;
+  printf("%d\n",test );
+  add();
+}
+
+//t2.c
+#include <stdio.h>
+#include "t.h"
+int test=100;
+
+void add(int i){
+  printf("%d\n",test );
+}
+
+//t.h
+void add();
+
+```
+t1.c 는 t2.c 의 test를 가져 와서 출력후 1증가 한후 다시 출력해준다.
+
+그리고 add 함수를 호출하는데, 이 함수는 t2.c에 있다.
+
+그럼 t1.c에서 1을 증가 시켰던 test값이 t2.c에서 그대로 적용되는지 확인해 보는 예제이다.
+
+그럼 결과를 살펴 보자
+
+```c
+100
+101
+101
+```
+
+물론 t1.c에서 증가 시켰던 test의 값이 t2.c에서도 그대로 적용되었다.
+
+이러한 현상을 `linkage` 라고 한다.
+
+메모리에는 어떻게 저장되어 있을까?
+
+![image-20180713142020491](../../assets/img/post/image-20180713142020491.png)
+
+data segment 에 저장되어 있다.
+
+extern으로 선언자를 지정해도 결국 초기화된 전역 변수 이므로 data segment에 저장된다.
+
+
 
 이제 scope에 대해 어느정도 이해를 했을 것이다.
 
