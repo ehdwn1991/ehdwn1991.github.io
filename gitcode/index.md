@@ -23,6 +23,8 @@ order: 1
   {:.related-posts.faded}
 
 * [Data Structure]{:.heading.flip-title}  ---C로 구현한 자료구조
+
+
 ## [Linux]{:.heading.flip-title}
 
 {:.hr}
@@ -31,6 +33,7 @@ order: 1
 * [jekyll]{:.heading.flip-title} ---Jekyll for blog
 
   {:.related-posts.faded}
+
 
 
 
@@ -46,8 +49,9 @@ order: 1
 [Backjoon Problem]: /category/backjoon-category/
 [Data Structure]: /tag/datastructure/
 
-
 [Linux]: /category/linux/
 [etc]: /tag/etc/
 [jekyll]: /tag/jekyll/
+
+
 
