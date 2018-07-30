@@ -105,6 +105,8 @@ Text Classification, AWS 등을 대한 활용합니다.
 
 [MNIST 문자인식-숫자 ](http://solarisailab.com/archives/303)
 
+[MNIST 공홈](http://yann.lecun.com/exdb/mnist/)
+
 [Text data set - git hub](https://github.com/cs-chan/Total-Text-Dataset)
 
 [OpenCV guide](https://www.pyimagesearch.com/2018/07/19/opencv-tutorial-a-guide-to-learn-opencv/)

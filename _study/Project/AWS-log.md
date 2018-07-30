@@ -72,13 +72,15 @@ metacity &
 nautilus &
 gnome-terminal &
 #-------------------------------------------------------#
+
+# 이후 서버에 접속 할때마다
 ```
 
 
 
 ###  연결 주소 확인
 
-![스크린샷 2018-07-27 오후 10.46.24](assets/스크린샷 2018-07-27 오후 10.46.24.png)
+![스크린샷 2018-07-27 오후 10.46.24](../../assets/img/post/스크린샷 2018-07-27 오후 10.46.24.png)
 
 
 ```bash
@@ -114,7 +116,24 @@ localhost:5901
 
 ```
 
-![스크린샷 2018-07-27 오후 10.44.04](assets/스크린샷 2018-07-27 오후 10.44.04.png)
+![스크린샷 2018-07-27 오후 10.44.04](../../assets/img/post/스크린샷 2018-07-27 오후 10.44.04.png)
+
+
+
+## 서버 접속
+
+```shell
+# AWS에서 연결 들어가서 주소 확인
+# aws에 나오는 연결 부분 그대로 복사
+$ ssh sudo ssh -L 5901:localhost:5901 -i "여러분꺼.pem" ubuntu@어쩌구 저쩌구 주소
+# 접속 성공
+```
+
+
+
+
+
+
 
 
 
@@ -162,6 +181,113 @@ $ pip3 install jupyter
 ### Jupyter notebook execution
 
 ![스크린샷 2018-07-27 오후 9.17.27](../../assets/img/post/스크린샷 2018-07-27 오후 9.17.27.png)
+
+
+
+## Python Virtual environment installation
+
+
+
+### AWS E2C에 설치
+
+```shell
+# 서버에 설치
+$ sudo apt install virtualenv
+$ virtualenv myvenv
+# venv 설치 확인
+$ source myvenv/bin/activate
+
+#venv 종료
+(myvenv)~$ deactive 
+
+$ python3 -m virtualenv myvenv
+$ virtualenv myvenv --python=python3
+$ virtualenv myvenv --python=python3.5
+
+
+
+```
+
+
+
+### Mac 에 설치
+
+[참고](http://guswnsxodlf.github.io/pyenv-virtualenv-autoenv)
+
+```shell
+# pyenv 설치
+$ brew install pyenv
+$ brew install pyenv-virtualenv
+$ pyenv versions
+* system (set by /Users/Edwardson/.pyenv/version)
+  3.6.5
+#최신 버전설치
+$ pyenv install --list
+...
+3.6.5
+...
+$ pyenv install 3.6.5
+# 특정 버전으로 이동
+$ pyenv shell X.X.X(바꾸고 싶은 버전)
+
+# pyenv 로 myenv virtualenv 생성
+$ pyenv virtualenv 3.6.5 myenv
+# 확인
+$ pyenv versions
+* system (set by /Users/Edwardson/.pyenv/version)
+  3.6.5
+  3.6.5/envs/myenv
+  myenv  => 해당 폴더는 /Users/Edwardson/.pyenv/version 안에 존재함
+
+# 근데 우리는 서버랑 같은 환경에서 만들고 싶기 때문에
+# virtualenv 를 사용한다.
+$ virtualenv myenv
+$ ls
+...
+myenv
+..
+$ cd myenv
+$ source bin/activate
+(myenv)$ python --version
+Python 3.6.5
+(myenv)$ pip --version
+pip 18.0 from /Users/Edwardson/Dropbox/Codex/Coding_in_Mac/aws_project/myenv/lib/python3.6/site-packages/pip (python 3.6)
+
+```
+
+
+
+
+
+## Django 설치
+
+### AWS E2C
+
+```shell
+$ cd myvenv
+$ source bin/activate
+(myvenv)$ pip install Django
+(myvenv)$ python3
+>>import django
+>>django.VERSION
+(2, 0, 7, 'final', 0)
+```
+
+
+
+### Mac
+
+```shell
+$ cd myenv
+$ source bin/activate
+(myenv)$ pip install Django
+(myenv)$ python3
+>>import django
+>>django.VERSION
+(2, 0, 7, 'final', 0)
+```
+
+
 
 
 
