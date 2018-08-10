@@ -12,6 +12,10 @@ author: author2
 ---
 
 
+* 
+{:toc}
+
+
 
 ## gui 변경
 
@@ -80,7 +84,7 @@ gnome-terminal &
 
 ###  연결 주소 확인
 
-![S_2018-07-27_10.46.24](../../assets/img/post/S_2018-07-27_10.46.24.png)
+![img](../../assets/img/post/S_2018-07-27_10.46.24.png)
 
 
 ```bash
@@ -140,6 +144,23 @@ $ ssh sudo ssh -L 5901:localhost:5901 -i "여러분꺼.pem" ubuntu@어쩌구 저
 ## 우분투 서버에 파이썬 환경 설정
 
 ```bash
+# pyenv 로 설치 -> https://github.com/pyenv/pyenv-installer
+$ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+Update:
+
+$ pyenv update
+Uninstall: pyenv is installed within $PYENV_ROOT (default: ~/.pyenv). To uninstall, just remove it:
+
+$ rm -fr ~/.pyenv
+and remove these three lines from .bashrc:
+
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+If you need, export USE_GIT_URI to use git:// instead of https:// for git clone.
+
+
 # 파이썬 확인
 $ python --version
 Python 2.7.12
@@ -149,6 +170,7 @@ Python 3.5.2
 # 파이썬이 기본적으로 설치 되어 있음
 # 이제 pip3 를 설치할 차례
 $ sudo apt install python-pip
+# pip버전이 낮다고 나온다면
 $ pip install --upgrade pip
 $ sudo apt install python3-pip
 pip 8.1.1 from /usr/lib/python3/dist-packages (python 3.5)
@@ -170,6 +192,9 @@ $ sudo python3 -m pip uninstall pip && sudo apt install python3-pip --reinstall
 $ pip3 install ipython
 $ pip3 install jupyter
 
+
+# 파이썬 설치후 배포할때에 필요한 라이브러리에 대한 정보를 알리기 위해
+$ pip freeze > requirements.txt
 ```
 
 
@@ -257,6 +282,26 @@ pip 18.0 from /Users/Edwardson/Dropbox/Codex/Coding_in_Mac/aws_project/myenv/lib
 
 
 
+```shell
+# pyen 설치시 ctype 에러 날떄
+$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
+```
+
+
+
+```shell
+병신 같은 에러 남 자꾸 터미널에서 인식을 못함
+일단 https://github.com/pyenv/pyenv#installation
+여기 참고하자
+$ $ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
+
+```
+
+
+
+
+
 
 
 ## Django 설치
@@ -285,6 +330,73 @@ $ source bin/activate
 >>import django
 >>django.VERSION
 (2, 0, 7, 'final', 0)
+```
+
+
+
+## OpenCV 설치
+
+
+
+### Mac
+
+```shell
+$ cd myenv
+$ source bin/activate
+(myenv)$ pip install OpenCV-Python
+(myenv)$ python3
+>>cv2.__version__
+'3.4.2'
+```
+
+
+
+
+
+## Tensor-flow 설치
+
+
+
+### Mac
+
+```shell
+$ cd myenv
+$ source bin/activate
+(myenv)$ pip3 install --upgrade tensorflow
+(myenv)$ python3
+>>> import tensorflow
+>>> tensorflow.VERSION
+'1.9.0'
+```
+
+
+
+
+
+
+
+
+
+
+
+## SCP Usage
+
+
+
+
+
+
+
+## pyenv 다시 설치
+
+
+
+```shell
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev
+
+
 ```
 
 
