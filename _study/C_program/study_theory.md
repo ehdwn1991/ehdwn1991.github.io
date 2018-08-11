@@ -5,7 +5,7 @@ comments: true
 description: >
   수업 내용 중요부분 집중 정리!!!
 study: [study_lang_c]
-tags: [c]
+tags: [c,C언어_공부]
 date: 2018-06-11
 author: author2
 ---

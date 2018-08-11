@@ -54,7 +54,7 @@ order: 1
 [Data Structure]: /tag/datastructure/
 [Coding Tip]: /tag/c-coding-tip/
 
-[Git 끝내기]: /
+[Git 끝내기]: /tag/git/
 
 [Linux]: /category/linux/
 [etc]: /tag/etc/
