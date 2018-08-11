@@ -23,6 +23,10 @@ order: 1
   {:.related-posts.faded}
 
 * [Data Structure]{:.heading.flip-title}  ---C로 구현한 자료구조
+* [Coding Tip]{:.heading.flip-title}  ---C Coding에 대한 고찰
+
+
+## [Git 끝내기]{:.heading.flip-title}
 
 
 ## [Linux]{:.heading.flip-title}
@@ -48,6 +52,9 @@ order: 1
 [Personal Problem]: ../_featured_categories/personalcode/personalcode.md
 [Backjoon Problem]: /category/backjoon-category/
 [Data Structure]: /tag/datastructure/
+[Coding Tip]: /tag/c-coding-tip/
+
+[Git 끝내기]: /
 
 [Linux]: /category/linux/
 [etc]: /tag/etc/
