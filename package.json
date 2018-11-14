@@ -42,7 +42,10 @@
     "style-loader": "^0.20.3",
     "webpack": "^3.11.0",
     "webpack-merge": "^4.1.2",
-    "yargs": "^11.1.0"
+    "yargs": "^11.1.0",
+    "lodash": ">=4.17.5",
+    "randomatic": ">=3.0.0",
+    "debug": ">=2.6.9"
   },
   "dependencies": {
     "color": "^2.0.1",
