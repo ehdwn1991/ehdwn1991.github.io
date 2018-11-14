@@ -54,7 +54,8 @@
     "hy-drawer": "^1.0.0-pre.12",
     "hy-push-state": "^1.0.0-pre.12",
     "rxjs": "^5.5.8",
-    "web-animations-js": "^2.3.1"
+    "web-animations-js": "^2.3.1",
+    "macaddress": ">=0.2.9"
   },
   "repository": {
     "type": "git",
