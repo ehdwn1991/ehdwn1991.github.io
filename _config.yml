@@ -203,6 +203,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
+  - jekyll-redirect-from
   # - jekyll-toc
 
 
