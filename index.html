@@ -5,40 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        let count = 7;
-        
-        // 카운트다운 함수
+        let count = 5;
         function countdown() {
-            document.getElementById('countdown').innerText = count; // 카운트 숫자 표시
+            document.getElementById('countdown').innerText = count; // 초기값 표시
             if (count > 0) {
                 setTimeout(() => {
                     count--;
-                    countdown(); // 카운트가 0까지 진행되도록
+                    countdown();
                 }, 1000);
             } else {
-                window.location.href = "https://codex-devlab.github.io/"; // 이동
+                window.location.href = "https://codex-devlab.github.io/";
             }
         }
 
-        // DOMContentLoaded로 HTML이 로드된 후 실행
-        document.addEventListener('DOMContentLoaded', function() {
-            countdown(); // 카운트다운 시작
+        window.onload = function() {
+            countdown();
             let video = document.getElementById("redirect-video");
-            video.playbackRate = 2; // 🎬 2배속 설정
-        });
+            video.playbackRate = 2;
+        };
     </script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* 내용이 위에서 아래로 순차적으로 표시되도록 */
+            justify-content: center;
+            align-items: center; /* 비디오를 중앙에 정렬 */
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        video {
+            width: 640px; /* 고정된 크기 */
+            height: 480px; /* 고정된 크기 */
+            margin-top: 20px; /* 비디오와 텍스트 간 간격 추가 */
+        }
+    </style>
 </head>
-<body style="text-align: center; font-family: Arial, sans-serif;">
+<body>
     <h2>Jekyll을 떠나...</h2>
     <h2>새로운 블로그로 이동 합니다...</h2>
-    
+
     <!-- 🎬 MP4 비디오 자동 재생 -->
-    <video id="redirect-video" width="640" height="480" autoplay loop muted playsinline>
+    <video id="redirect-video" autoplay loop muted playsinline>
         <source src="https://ehdwn1991.github.io/assets/img/nodding.mp4" type="video/mp4">
         브라우저가 영상을 지원하지 않습니다.
     </video>
 
-    <p><strong><span id="countdown">7</span>초 후에 자동으로 이동합니다.</strong></p>
+    <p><strong><span id="countdown">5</span>초 후에 자동으로 이동합니다.</strong></p>
     <p>만약 자동으로 이동되지 않으면 <a href="https://codex-devlab.github.io/">여기를 클릭하세요</a>.</p>
 </body>
 </html>
