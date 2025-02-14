@@ -155,22 +155,22 @@ hydejack:
 # Collections
 # ========================================================================================
 
-collections:
-  featured_categories:
-    permalink:         /category/:name/
-    output:            true
+# collections:
+#   featured_categories:
+#     permalink:         /category/:name/
+#     output:            true
 
-  featured_tags:
-    permalink:         /tag/:name/
-    output:            true
+#   featured_tags:
+#     permalink:         /tag/:name/
+#     output:            true
 
-  projects:
-    permalink:         /projects/:path/
-    output:            true
+#   projects:
+#     permalink:         /projects/:path/
+#     output:            true
   
-  study:
-    permalink:         /study/:name/
-    output: true
+#   study:
+#     permalink:         /study/:name/
+#     output: true
 
 # File inclusion/exclusion
 # ========================================================================================
@@ -203,7 +203,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
-  - jekyll-redirect-from
   # - jekyll-toc
 
 
