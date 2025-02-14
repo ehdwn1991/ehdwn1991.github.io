@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -5,23 +6,26 @@
     <title>Redirecting...</title>
     <script>
         let count = 5;
+        
+        // 카운트다운 함수
         function countdown() {
-            document.getElementById('countdown').innerText = count; // 초기값 표시
+            document.getElementById('countdown').innerText = count; // 카운트 숫자 표시
             if (count > 0) {
                 setTimeout(() => {
                     count--;
-                    countdown();
+                    countdown(); // 카운트가 0까지 진행되도록
                 }, 1000);
             } else {
-                window.location.href = "https://codex-devlab.github.io/";
+                window.location.href = "https://codex-devlab.github.io/"; // 이동
             }
         }
 
-        window.onload = function() {
-            countdown();
+        // DOMContentLoaded로 HTML이 로드된 후 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            countdown(); // 카운트다운 시작
             let video = document.getElementById("redirect-video");
-            video.playbackRate = 2; // 🎬 1.5배속 설정
-        };
+            video.playbackRate = 2; // 🎬 2배속 설정
+        });
     </script>
 </head>
 <body style="text-align: center; font-family: Arial, sans-serif;">
