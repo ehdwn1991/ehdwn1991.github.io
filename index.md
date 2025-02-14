@@ -25,8 +25,8 @@
     </script>
 </head>
 <body style="text-align: center; font-family: Arial, sans-serif;">
-    <h2>Jekyll을 떠나...<br/>
-    새로운 블로그로 이동 합니다...</h2>
+    <h2>Jekyll을 떠나...</h2>
+    <h2>새로운 블로그로 이동 합니다...</h2>
     
     <!-- 🎬 MP4 비디오 자동 재생 -->
     <video id="redirect-video" width="640" height="480" autoplay loop muted>
